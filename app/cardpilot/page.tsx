@@ -55,7 +55,7 @@ export default function CardPilot() {
       </nav>
 
       {/* Floating back button */}
-      <div className="fixed top-16 z-50" style={{ left: "12vw" }}>
+      <div className="fixed top-5 md:top-16 z-50 left-4 md:left-[12vw]">
         <Link
           href="/"
           className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#1a1a1a] border border-white/10 text-[13px] text-white/80 hover:text-white hover:bg-[#222] transition-all duration-200"
@@ -68,7 +68,7 @@ export default function CardPilot() {
       </div>
 
       {/* Hero image — with bottom gradient fade */}
-      <div className="w-full px-[12vw] pt-32 pb-0">
+      <div className="w-full px-4 md:px-[12vw] pt-20 md:pt-32 pb-0">
         <div className="w-full relative overflow-hidden rounded-t-[24px]" style={{ aspectRatio: "16/10.37", background: "#0a0a0a" }}>
           <img
             src="/images/homepage/cardpilot.png"
@@ -82,11 +82,11 @@ export default function CardPilot() {
       </div>
 
       {/* Main content */}
-      <div className="px-[12vw] pb-32">
+      <div className="px-4 md:px-[12vw] pb-32">
 
         {/* Title block + Overview */}
         <section id="overview" className="pt-4 pb-16 scroll-mt-20">
-          <div className="grid grid-cols-1 w-full" style={{ gridTemplateColumns: "40% 50%", gap: "0 10%" }}>
+          <div className="flex flex-col md:grid w-full gap-10 md:gap-0" style={{ gridTemplateColumns: "40% 50%", columnGap: "10%" }}>
 
             {/* Left: title + meta */}
             <div className="flex flex-col justify-between gap-10">
@@ -117,7 +117,7 @@ export default function CardPilot() {
             {/* Right: overview content */}
             <div className="flex flex-col justify-end">
               <p className="text-[11px] font-semibold tracking-[0.12em] uppercase text-white/30 mb-5">Overview</p>
-              <div className="space-y-4 text-[16px] text-white/55 leading-relaxed">
+              <div className="space-y-4 text-[16px] text-white/70 leading-relaxed">
                 <p>Most people carry multiple credit cards. Very few use the right one at checkout.</p>
                 <p>CardPilot is a checkout intelligence engine that evaluates every card in your wallet and recommends the best one for each purchase.</p>
                 <p>The system computes the optimal card in real time and explains the reasoning — in the two seconds before you tap.</p>
@@ -128,7 +128,7 @@ export default function CardPilot() {
         </section>
 
         {/* Context */}
-        <section id="context" className="py-20 scroll-mt-20">
+        <section id="context" className="py-10 md:py-20 scroll-mt-20">
           <SectionCard label="Context">
             <TwoCol
               left={
@@ -145,7 +145,7 @@ export default function CardPilot() {
                 </div>
               }
               right={
-                <div className="space-y-4 text-[16px] text-white/55 leading-relaxed">
+                <div className="space-y-4 text-[16px] text-white/70 leading-relaxed">
                   <p>The average Canadian credit card holder carries 2.2 cards. Among users who actively optimize rewards, that number rises to 4 or more — each with different earn rates, bonus thresholds, and billing cycles.</p>
                   <p>Each card has different reward structures, bonus thresholds, due dates, and utilization impact. But issuer apps operate independently. There is no shared state or cross-card intelligence.</p>
                   <p>The friction happens in seconds at checkout — but the cost compounds over time through missed bonuses, suboptimal rewards, and unnoticed credit utilization.</p>
@@ -156,7 +156,7 @@ export default function CardPilot() {
         </section>
 
         {/* Research */}
-        <section id="research" className="py-20 scroll-mt-20">
+        <section id="research" className="py-10 md:py-20 scroll-mt-20">
           <SectionCard label="Research">
             <TwoCol
               left={
@@ -165,7 +165,7 @@ export default function CardPilot() {
                 </h2>
               }
               right={
-                <div className="space-y-3 text-[16px] text-white/55 leading-relaxed">
+                <div className="space-y-3 text-[16px] text-white/70 leading-relaxed">
                   <p>I conducted 6 informal interviews with Canadian multi-card holders — 3 power users managing 4+ cards with spreadsheet-tracked bonuses, and 3 casual holders who rarely optimized — and reviewed 200+ threads across r/PersonalFinanceCanada and r/CreditCards.</p>
                   <p>Despite different levels of engagement, users shared the same outcome at checkout:</p>
                   <p className="text-white/70">Experts lack time to calculate.<br />Casual users don't realize a decision exists.</p>
@@ -194,7 +194,7 @@ export default function CardPilot() {
         </section>
 
         {/* Market Gap */}
-        <section id="market-gap" className="py-20 scroll-mt-20">
+        <section id="market-gap" className="py-10 md:py-20 scroll-mt-20">
           <SectionCard label="Market Gap">
             <TwoCol
               left={
@@ -203,7 +203,7 @@ export default function CardPilot() {
                 </h2>
               }
               right={
-                <div className="space-y-4 text-[16px] text-white/55 leading-relaxed">
+                <div className="space-y-4 text-[16px] text-white/70 leading-relaxed">
                   <p>Financial tools today are built for reflection — balances, transactions, and spending history.</p>
                   <p>But checkout is the actual decision moment. No product evaluates multiple cards in real time and recommends the best one at the point of payment. The gap isn't a missing feature — it's a missing category.</p>
                 </div>
@@ -257,7 +257,7 @@ export default function CardPilot() {
         </section>
 
         {/* Hypothesis */}
-        <section id="hypothesis" className="py-20 scroll-mt-20">
+        <section id="hypothesis" className="py-10 md:py-20 scroll-mt-20">
           <SectionCard label="Hypothesis">
             <TwoCol
               left={
@@ -266,7 +266,7 @@ export default function CardPilot() {
                 </h2>
               }
               right={
-                <div className="space-y-4 text-[16px] text-white/55 leading-relaxed">
+                <div className="space-y-4 text-[16px] text-white/70 leading-relaxed">
                   <p>Users don't default to habit because they lack data. They default because four variables must be evaluated simultaneously — reward rate, bonus progress, utilization impact, and payment timing.</p>
                   <p>Existing tools expose the data. None compute the decision.</p>
                 </div>
@@ -276,7 +276,7 @@ export default function CardPilot() {
             <img
               src="/images/cardpilot/hypothesis/model.png"
               alt="Hypothesis model"
-              className="w-1/2 object-contain mx-auto block"
+              className="w-full md:w-1/2 object-contain mx-auto block"
               onError={(e) => { (e.target as HTMLImageElement).style.opacity = "0"; }}
             />
 
@@ -294,7 +294,7 @@ export default function CardPilot() {
         </section>
 
         {/* Model */}
-        <section id="model" className="py-20 scroll-mt-20">
+        <section id="model" className="py-10 md:py-20 scroll-mt-20">
           <SectionCard label="System Architecture">
             {/* Layer 1 */}
             <TwoCol
@@ -304,7 +304,7 @@ export default function CardPilot() {
                 </h2>
               }
               right={
-                <div className="space-y-3 text-[16px] text-white/55 leading-relaxed">
+                <div className="space-y-3 text-[16px] text-white/70 leading-relaxed">
                   <p>CardPilot aggregates structured data for each card:</p>
                   <ul className="space-y-1">
                     {["statement balance", "credit limit", "utilization", "payment due date", "welcome bonus progress", "annual fee lifecycle"].map((i) => (
@@ -326,7 +326,7 @@ export default function CardPilot() {
                   </h2>
                 }
                 right={
-                  <div className="space-y-3 text-[16px] text-white/55 leading-relaxed">
+                  <div className="space-y-3 text-[16px] text-white/70 leading-relaxed">
                     <p>At checkout, each card is evaluated across four signals:</p>
                     <ul className="space-y-1">
                       {["reward rate", "bonus urgency", "utilization risk", "due-date proximity"].map((i) => (
@@ -354,7 +354,7 @@ export default function CardPilot() {
         </section>
 
         {/* Checkout */}
-        <section id="checkout" className="py-20 scroll-mt-20">
+        <section id="checkout" className="py-10 md:py-20 scroll-mt-20">
           <SectionCard label="Checkout">
             <TwoCol
               left={
@@ -363,7 +363,7 @@ export default function CardPilot() {
                 </h2>
               }
               right={
-                <div className="space-y-4 text-[16px] text-white/55 leading-relaxed">
+                <div className="space-y-4 text-[16px] text-white/70 leading-relaxed">
                   <p>When a merchant is detected, the engine ranks every card simultaneously. Instead of showing a comparison table, CardPilot surfaces one recommendation with two supporting signals.</p>
                   <p>The model evaluates four dimensions internally — but exposing all four would recreate the same cognitive overload the product is designed to remove.</p>
                   <p>Two signals provide enough transparency to trust the recommendation, and enough context to override it. If two cards score identically, CardPilot defaults to the user's primary card.</p>
@@ -381,7 +381,7 @@ export default function CardPilot() {
         </section>
 
         {/* Design Decision */}
-        <section id="design-decision" className="py-20 scroll-mt-20">
+        <section id="design-decision" className="py-10 md:py-20 scroll-mt-20">
           <SectionCard label="Design Decision">
             <TwoCol
               left={
@@ -390,7 +390,7 @@ export default function CardPilot() {
                 </h2>
               }
               right={
-                <div className="space-y-4 text-[16px] text-white/55 leading-relaxed">
+                <div className="space-y-4 text-[16px] text-white/70 leading-relaxed">
                   <p>CardPilot intentionally avoids the visual language of traditional banking apps. Most fintech interfaces rely on blue and white palettes designed to signal safety.</p>
                   <p>CardPilot is a decision tool, not a banking interface. The design language emphasizes precision and clarity — deep black surfaces, high-contrast typography, neon yellow-green for primary actions.</p>
                 </div>
@@ -410,18 +410,18 @@ export default function CardPilot() {
             </div>
 
             {/* The Pay Flow */}
-            <div className="mt-10 w-full grid" style={{ gridTemplateColumns: "14.5% 25.5% 10% 50%" }}>
-              <div />
+            <div className="mt-10 flex flex-col md:grid w-full gap-6 md:gap-0" style={{ gridTemplateColumns: "14.5% 25.5% 10% 50%" }}>
+              <div className="hidden md:block" />
               <div className="flex flex-col justify-center gap-4">
                 <h3 className="text-[18px] font-bold leading-snug tracking-tight text-white">The Pay Flow</h3>
-                <div className="space-y-4 text-[16px] text-white/55 leading-relaxed">
+                <div className="space-y-4 text-[16px] text-white/70 leading-relaxed">
                   <p>The card stack home screen surfaces alerts directly on the card — "Payment due in 3 days" appears on the card it belongs to, not buried in notifications.</p>
                   <p>The pay flow closes the loop. The success screen shows exactly what the transaction earned and how it moved the welcome bonus target.</p>
                 </div>
               </div>
-              <div />
+              <div className="hidden md:block" />
               <div className="flex justify-center">
-                <div className="w-[42%] rounded-[20px] overflow-hidden">
+                <div className="w-full md:w-[42%] rounded-[20px] overflow-hidden">
                   <video
                     src="/images/cardpilot/design-decision/payment-flow.mp4"
                     autoPlay
@@ -435,20 +435,20 @@ export default function CardPilot() {
             </div>
 
             {/* Card Detail */}
-            <div className="mt-10 w-full grid" style={{ gridTemplateColumns: "14.5% 25.5% 10% 50%" }}>
-              <div />
+            <div className="mt-10 flex flex-col md:grid w-full gap-6 md:gap-0" style={{ gridTemplateColumns: "14.5% 25.5% 10% 50%" }}>
+              <div className="hidden md:block" />
               <div className="flex flex-col justify-center gap-4">
                 <h3 className="text-[18px] font-bold leading-snug tracking-tight text-white">Card detail — distinguishing monitoring data from reference data</h3>
-                <div className="space-y-4 text-[16px] text-white/55 leading-relaxed">
+                <div className="space-y-4 text-[16px] text-white/70 leading-relaxed">
                   <p>Each card screen separates information by urgency.</p>
                   <p>Current balance, due date, and utilization are <span className="text-white/70">monitoring data</span> — surfaced prominently.</p>
                   <p>Annual fee and renewal date are <span className="text-white/70">reference data</span> — visible but visually quieter.</p>
                   <p>Welcome bonus progress appears only when a bonus is active, keeping the interface uncluttered for cards without one.</p>
                 </div>
               </div>
-              <div />
+              <div className="hidden md:block" />
               <div className="flex justify-center">
-                <div className="w-[42%] rounded-[20px] overflow-hidden">
+                <div className="w-full md:w-[42%] rounded-[20px] overflow-hidden">
                   <video
                     src="/images/cardpilot/design-decision/card-detail.mp4"
                     autoPlay
@@ -465,7 +465,7 @@ export default function CardPilot() {
         </section>
 
         {/* Integrity */}
-        <section id="integrity" className="py-20 scroll-mt-20">
+        <section id="integrity" className="py-10 md:py-20 scroll-mt-20">
           <SectionCard label="Integrity">
             <TwoCol
               left={
@@ -482,7 +482,7 @@ export default function CardPilot() {
                 </div>
               }
               right={
-                <div className="space-y-4 text-[16px] text-white/55 leading-relaxed">
+                <div className="space-y-4 text-[16px] text-white/70 leading-relaxed">
                   <p>CardPilot generates revenue through affiliate partnerships surfaced in the Offer tab. However, the checkout recommendation engine is structurally isolated from monetization.</p>
                   <p>A sponsored card can appear in Offers — but cannot influence the recommendation score. This separation is deliberate. If users suspect the recommendation favors issuers, the product's core value collapses.</p>
                   <p>Trust is architectural.</p>
@@ -502,7 +502,7 @@ export default function CardPilot() {
         </section>
 
         {/* Design Tradeoff */}
-        <section id="design-tradeoff" className="py-20 scroll-mt-20">
+        <section id="design-tradeoff" className="py-10 md:py-20 scroll-mt-20">
           <SectionCard label="Design Tradeoff">
             <TwoCol
               left={
@@ -511,7 +511,7 @@ export default function CardPilot() {
                 </h2>
               }
               right={
-                <div className="space-y-4 text-[16px] text-white/55 leading-relaxed">
+                <div className="space-y-4 text-[16px] text-white/70 leading-relaxed">
                   <p>Early concepts surfaced the full scoring model — all four signals. While technically transparent, this recreated the same cognitive load the product was designed to remove.</p>
                   <p>I showed both versions to 3 participants. All 3 said the four-signal version felt like "more homework." The two-signal version felt "faster to trust."</p>
                   <p>The final design simplified to one recommendation supported by two signals — the most decision-relevant ones for that specific transaction. The system evaluates all four internally. Users only see what they need to act.</p>
@@ -523,7 +523,7 @@ export default function CardPilot() {
         </section>
 
         {/* Measuring Success */}
-        <section id="measuring-success" className="py-20 scroll-mt-20">
+        <section id="measuring-success" className="py-10 md:py-20 scroll-mt-20">
           <SectionCard label="Measuring Success">
             <TwoCol
               left={
@@ -532,7 +532,7 @@ export default function CardPilot() {
                 </h2>
               }
               right={
-                <p className="text-[16px] text-white/55 leading-relaxed">
+                <p className="text-[16px] text-white/70 leading-relaxed">
                   If CardPilot were launched, success would be measured through behavioral signals in the first 90 days — with a north star of reducing the gap between the card users choose and the card they should have chosen.
                 </p>
               }
@@ -556,7 +556,7 @@ export default function CardPilot() {
         </section>
 
         {/* Reflection */}
-        <section id="reflection" className="py-20 scroll-mt-20">
+        <section id="reflection" className="py-10 md:py-20 scroll-mt-20">
           <SectionCard label="Reflection">
             <TwoCol
               left={
@@ -565,7 +565,7 @@ export default function CardPilot() {
                 </h2>
               }
               right={
-                <div className="space-y-4 text-[16px] text-white/55 leading-relaxed">
+                <div className="space-y-4 text-[16px] text-white/70 leading-relaxed">
                   <p>The hardest design decision in CardPilot wasn't the visual language or the checkout flow — it was deciding when the system should stay silent.</p>
                   <p>A recommendation engine that always recommends can create its own kind of noise. I didn't fully solve that problem, and I'd make it a first-order constraint in the next iteration.</p>
                 </div>
@@ -596,7 +596,7 @@ export default function CardPilot() {
 
 function SectionCard({ label, children, noPaddingBottom }: { label: string; children: React.ReactNode; noPaddingBottom?: boolean }) {
   return (
-    <div className={`rounded-[24px] ${noPaddingBottom ? "pt-16 px-10 pb-0" : "pt-16 px-10 pb-10"}`} style={{ background: "#0d0d0d", border: "1px solid rgba(255,255,255,0.06)" }}>
+    <div className={`rounded-[24px] ${noPaddingBottom ? "pt-10 md:pt-16 px-5 md:px-10 pb-0" : "pt-10 md:pt-16 px-5 md:px-10 pb-10"}`} style={{ background: "#0d0d0d", border: "1px solid rgba(255,255,255,0.06)" }}>
       <div className="flex items-center gap-2 mb-7">
         <span className="w-[8px] h-[8px] rounded-full bg-white flex-shrink-0" style={{ boxShadow: "0 0 6px 2px rgba(255,255,255,0.25)" }} />
         <p className="text-[11px] font-semibold tracking-[0.14em] uppercase text-white/40">{label}</p>
@@ -608,7 +608,7 @@ function SectionCard({ label, children, noPaddingBottom }: { label: string; chil
 
 function TwoCol({ left, right }: { left: React.ReactNode; right: React.ReactNode }) {
   return (
-    <div className="grid grid-cols-1 w-full" style={{ gridTemplateColumns: "40% 50%", gap: "0 10%" }}>
+    <div className="flex flex-col md:grid w-full gap-6 md:gap-0" style={{ gridTemplateColumns: "40% 50%", columnGap: "10%" }}>
       <div>{left}</div>
       <div>{right}</div>
     </div>

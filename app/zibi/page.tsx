@@ -52,7 +52,7 @@ export default function Zibi() {
       </nav>
 
       {/* Floating back button */}
-      <div className="fixed top-16 z-50" style={{ left: "12vw" }}>
+      <div className="fixed top-5 md:top-16 z-50 left-4 md:left-[12vw]">
         <Link
           href="/"
           className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#1a1a1a] border border-white/10 text-[13px] text-white/80 hover:text-white hover:bg-[#222] transition-all duration-200"
@@ -65,7 +65,7 @@ export default function Zibi() {
       </div>
 
       {/* Hero image */}
-      <div className="w-full px-[12vw] pt-32 pb-0">
+      <div className="w-full px-4 md:px-[12vw] pt-20 md:pt-32 pb-0">
         <div className="w-full relative overflow-hidden rounded-t-[24px]" style={{ aspectRatio: "16/10.37", background: "#0a0a0a" }}>
           <img
             src="/images/homepage/zibi.jpg"
@@ -78,11 +78,11 @@ export default function Zibi() {
       </div>
 
       {/* Main content */}
-      <div className="px-[12vw] pb-32">
+      <div className="px-4 md:px-[12vw] pb-32">
 
         {/* Title block + Overview */}
         <section id="overview" className="pt-4 pb-16 scroll-mt-20">
-          <div className="grid grid-cols-1 w-full" style={{ gridTemplateColumns: "40% 50%", gap: "0 10%" }}>
+          <div className="flex flex-col md:grid w-full gap-10 md:gap-0" style={{ gridTemplateColumns: "40% 50%", columnGap: "10%" }}>
 
             {/* Left: title + meta */}
             <div className="flex flex-col justify-between gap-10">
@@ -114,7 +114,7 @@ export default function Zibi() {
             {/* Right: overview content */}
             <div className="flex flex-col justify-end">
               <p className="text-[11px] font-semibold tracking-[0.12em] uppercase text-white/30 mb-5">Overview</p>
-              <div className="space-y-4 text-[16px] text-white/55 leading-relaxed">
+              <div className="space-y-4 text-[16px] text-white/70 leading-relaxed">
                 <p>Zibi is a large waterfront community spanning Ottawa and Gatineau — combining residential buildings, public spaces, and commercial areas into one neighbourhood.</p>
                 <p>Consolidated three fragmented websites into a single scalable platform, reducing operational overhead and enabling unified customer journeys across the Zibi community.</p>
               </div>
@@ -123,7 +123,7 @@ export default function Zibi() {
                   <p className="text-[11px] font-semibold tracking-[0.12em] uppercase text-white/30 mb-3">Phase 1 — Complete</p>
                   <ul className="space-y-2">
                     {["zibi.ca community platform launched on schedule", "IA and navigation fully restructured", "Modular building template ready for Phase 2"].map((item) => (
-                      <li key={item} className="flex items-start gap-2 text-[14px] text-white/55">
+                      <li key={item} className="flex items-start gap-2 text-[14px] text-white/70">
                         <span className="w-1 h-1 rounded-full bg-white/30 flex-shrink-0 mt-2" />
                         {item}
                       </li>
@@ -134,7 +134,7 @@ export default function Zibi() {
                   <p className="text-[11px] font-semibold tracking-[0.12em] uppercase text-white/30 mb-3">Phase 2 — In Progress</p>
                   <ul className="space-y-2">
                     {["Building pages replacing aaltosuites.ca + vodaliving.ca", "Campaign traffic consolidation", "Cross-building discovery + full attribution"].map((item) => (
-                      <li key={item} className="flex items-start gap-2 text-[14px] text-white/55">
+                      <li key={item} className="flex items-start gap-2 text-[14px] text-white/70">
                         <span className="w-1 h-1 rounded-full bg-white/20 flex-shrink-0 mt-2" />
                         {item}
                       </li>
@@ -148,7 +148,7 @@ export default function Zibi() {
         </section>
 
         {/* Business Context */}
-        <section id="business-context" className="py-20 scroll-mt-20">
+        <section id="business-context" className="py-10 md:py-20 scroll-mt-20">
           <SectionCard label="Business Context">
             <TwoCol
               left={
@@ -157,7 +157,7 @@ export default function Zibi() {
                 </h2>
               }
               right={
-                <div className="space-y-4 text-[16px] text-white/55 leading-relaxed">
+                <div className="space-y-4 text-[16px] text-white/70 leading-relaxed">
                   <p>As the Zibi development grew, each building launched its own marketing site alongside the main community website. Over time, the digital ecosystem expanded to three independent sites — each with its own CMS, navigation, and content structure:</p>
                   <ul className="space-y-2">
                     {["Zibi.ca — community platform", "AaltoSuites.ca — 2 residential buildings", "VodaLiving.ca — 1 residential building"].map((item) => (
@@ -200,7 +200,7 @@ export default function Zibi() {
         </section>
 
         {/* Research */}
-        <section id="research" className="py-20 scroll-mt-20">
+        <section id="research" className="py-10 md:py-20 scroll-mt-20">
           <SectionCard label="Research">
             <TwoCol
               left={
@@ -209,7 +209,7 @@ export default function Zibi() {
                 </h2>
               }
               right={
-                <div className="space-y-4 text-[16px] text-white/55 leading-relaxed">
+                <div className="space-y-4 text-[16px] text-white/70 leading-relaxed">
                   <p>To understand how the ecosystem was actually used, I analyzed analytics across all three domains, spoke with the marketing and sales teams, and interviewed prospective residents.</p>
                   <p>Three patterns emerged across the data and conversations:</p>
                 </div>
@@ -244,7 +244,7 @@ export default function Zibi() {
         </section>
 
         {/* Product Strategy */}
-        <section id="product-strategy" className="py-20 scroll-mt-20">
+        <section id="product-strategy" className="py-10 md:py-20 scroll-mt-20">
           <SectionCard label="Product Strategy">
             <TwoCol
               left={
@@ -253,7 +253,7 @@ export default function Zibi() {
                 </h2>
               }
               right={
-                <div className="space-y-4 text-[16px] text-white/55 leading-relaxed">
+                <div className="space-y-4 text-[16px] text-white/70 leading-relaxed">
                   <p>When I joined the project, the initial direction was to improve each site individually. I challenged this approach and reframed the problem as a platform-level issue — redesigning individual sites would not solve the underlying fragmentation, duplicated effort, or broken attribution.</p>
                   <p>The real solution was consolidation. Instead of parallel sites, the platform would operate as one domain, one CMS, and one marketing destination. Residential buildings would exist as connected experiences within the Zibi platform, with the community site as the primary entry point.</p>
                   <p>This structure reflects how visitors actually explore Zibi: first understand the community → then compare residential options. It also creates a scalable foundation where future buildings integrate into the same platform instead of launching new standalone sites.</p>
@@ -285,7 +285,7 @@ export default function Zibi() {
         </section>
 
         {/* Information Architecture */}
-        <section id="information-architecture" className="py-20 scroll-mt-20">
+        <section id="information-architecture" className="py-10 md:py-20 scroll-mt-20">
           <SectionCard label="Information Architecture">
             <TwoCol
               left={
@@ -294,7 +294,7 @@ export default function Zibi() {
                 </h2>
               }
               right={
-                <div className="space-y-4 text-[16px] text-white/55 leading-relaxed">
+                <div className="space-y-4 text-[16px] text-white/70 leading-relaxed">
                   <p>Combining three independently built websites meant reconciling three different content hierarchies. Each site had its own navigation logic and assumptions about user behaviour.</p>
                   <p>The challenge was creating a unified structure that surfaced the right content without introducing unnecessary complexity.</p>
                 </div>
@@ -343,7 +343,7 @@ export default function Zibi() {
         </section>
 
         {/* Execution */}
-        <section id="execution" className="py-20 scroll-mt-20">
+        <section id="execution" className="py-10 md:py-20 scroll-mt-20">
           <SectionCard label="Execution">
             <TwoCol
               left={
@@ -352,7 +352,7 @@ export default function Zibi() {
                 </h2>
               }
               right={
-                <div className="space-y-4 text-[16px] text-white/55 leading-relaxed">
+                <div className="space-y-4 text-[16px] text-white/70 leading-relaxed">
                   <p>As the only designer on the project, I owned every layer — from information architecture and UX design to stakeholder alignment, developer handoff, and QA.</p>
                 </div>
               }
@@ -376,7 +376,7 @@ export default function Zibi() {
         </section>
 
         {/* Outcome */}
-        <section id="outcome" className="py-20 scroll-mt-20">
+        <section id="outcome" className="py-10 md:py-20 scroll-mt-20">
           <SectionCard label="Outcome">
             <TwoCol
               left={
@@ -385,7 +385,7 @@ export default function Zibi() {
                 </h2>
               }
               right={
-                <div className="space-y-4 text-[16px] text-white/55 leading-relaxed">
+                <div className="space-y-4 text-[16px] text-white/70 leading-relaxed">
                   <p>This project fundamentally changed how Zibi manages its digital ecosystem — shifting from fragmented marketing sites to a unified product experience. Phase 2 transitions the platform from a structural improvement to a measurable business driver.</p>
                 </div>
               }
@@ -429,7 +429,7 @@ export default function Zibi() {
         </section>
 
         {/* Reflection */}
-        <section id="reflection" className="py-20 scroll-mt-20">
+        <section id="reflection" className="py-10 md:py-20 scroll-mt-20">
           <SectionCard label="Reflection">
             <TwoCol
               left={
@@ -438,7 +438,7 @@ export default function Zibi() {
                 </h2>
               }
               right={
-                <div className="space-y-4 text-[16px] text-white/55 leading-relaxed">
+                <div className="space-y-4 text-[16px] text-white/70 leading-relaxed">
                   <p>This project began as a request to redesign several websites. The key decision was reframing the problem: improving three separate sites would have left the underlying fragmentation intact.</p>
                   <p>By treating it as a platform architecture challenge, we created a solution that scales with the growth of the Zibi community — reducing operational complexity and creating a foundation for long-term product scalability.</p>
                 </div>
@@ -469,7 +469,7 @@ export default function Zibi() {
 
 function SectionCard({ label, children, noPaddingBottom }: { label: string; children: React.ReactNode; noPaddingBottom?: boolean }) {
   return (
-    <div className={`rounded-[24px] ${noPaddingBottom ? "pt-16 px-10 pb-0" : "pt-16 px-10 pb-10"}`} style={{ background: "#0d0d0d", border: "1px solid rgba(255,255,255,0.06)" }}>
+    <div className={`rounded-[24px] ${noPaddingBottom ? "pt-10 md:pt-16 px-5 md:px-10 pb-0" : "pt-10 md:pt-16 px-5 md:px-10 pb-10"}`} style={{ background: "#0d0d0d", border: "1px solid rgba(255,255,255,0.06)" }}>
       <div className="flex items-center gap-2 mb-7">
         <span className="w-[8px] h-[8px] rounded-full bg-white flex-shrink-0" style={{ boxShadow: "0 0 6px 2px rgba(255,255,255,0.25)" }} />
         <p className="text-[11px] font-semibold tracking-[0.14em] uppercase text-white/40">{label}</p>
@@ -481,7 +481,7 @@ function SectionCard({ label, children, noPaddingBottom }: { label: string; chil
 
 function TwoCol({ left, right }: { left: React.ReactNode; right: React.ReactNode }) {
   return (
-    <div className="grid grid-cols-1 w-full" style={{ gridTemplateColumns: "40% 50%", gap: "0 10%" }}>
+    <div className="flex flex-col md:grid w-full gap-6 md:gap-0" style={{ gridTemplateColumns: "40% 50%", columnGap: "10%" }}>
       <div>{left}</div>
       <div>{right}</div>
     </div>
