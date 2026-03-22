@@ -174,7 +174,7 @@ export default function Zibi() {
             {/* Business context image */}
             <div className="mt-8 rounded-[20px] overflow-hidden">
               <img
-                src="/images/zibi/business-context/business-context.png"
+                src="/images/Zibi/business-context/business-context.png"
                 alt="Three fragmented Zibi websites"
                 className="w-full object-cover"
                 onError={(e) => { (e.target as HTMLImageElement).style.opacity = "0"; }}
@@ -264,7 +264,7 @@ export default function Zibi() {
             {/* Strategy evaluation image */}
             <div className="mt-8 rounded-[20px] overflow-hidden">
               <img
-                src="/images/zibi/product-strategy/strategy-table.png"
+                src="/images/Zibi/product-strategy/strategy-table.png"
                 alt="Platform strategy evaluation"
                 className="w-full object-cover"
                 onError={(e) => { (e.target as HTMLImageElement).style.opacity = "0"; }}
@@ -320,7 +320,7 @@ export default function Zibi() {
             <h3 className="text-[18px] font-bold text-white mt-8 mb-4">Redesigned sitemap</h3>
             <div className="rounded-[20px] overflow-hidden">
               <img
-                src="/images/zibi/information-architecture/sitemap.png"
+                src="/images/Zibi/information-architecture/sitemap.png"
                 alt="Redesigned sitemap"
                 className="w-full object-cover"
                 onError={(e) => { (e.target as HTMLImageElement).style.opacity = "0"; }}
@@ -331,7 +331,7 @@ export default function Zibi() {
             <h3 className="text-[18px] font-bold text-white mt-8 mb-4">Dual Navigation System</h3>
             <div className="rounded-[20px] overflow-hidden">
               <video
-                src="/images/zibi/information-architecture/dual-nav.mp4"
+                src="/images/Zibi/information-architecture/dual-nav.mp4"
                 autoPlay
                 loop
                 muted

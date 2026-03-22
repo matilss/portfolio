@@ -137,7 +137,7 @@ export default function CardPilot() {
                     Multi-card ownership increases opportunity — and complexity.
                   </h2>
                   <img
-                    src="/images/cardpilot/context/credit-cards.png"
+                    src="/images/Cardpilot/context/credit-cards.png"
                     alt="Stacked credit cards"
                     className="w-[80%] object-contain"
                     onError={(e) => { (e.target as HTMLImageElement).style.opacity = "0"; }}
@@ -213,19 +213,19 @@ export default function CardPilot() {
               {[
                 {
                   num: "01",
-                  icon: <img src="/images/cardpilot/market-gap/amex.png" alt="Amex" className="w-14 h-14 object-contain rounded-[14px]" />,
+                  icon: <img src="/images/Cardpilot/market-gap/amex.png" alt="Amex" className="w-14 h-14 object-contain rounded-[14px]" />,
                   title: "Banking apps\noptimize for account visibility",
                   body: "Balances, transactions, and due dates — but only within a single issuer.",
                 },
                 {
                   num: "02",
-                  icon: <img src="/images/cardpilot/market-gap/wallet-og.png" alt="Wallet" className="w-14 h-14 object-contain rounded-[14px]" />,
+                  icon: <img src="/images/Cardpilot/market-gap/wallet-og.png" alt="Wallet" className="w-14 h-14 object-contain rounded-[14px]" />,
                   title: "Wallet apps\noptimize for payment speed",
                   body: "Fast checkout, but no evaluation of rewards, bonuses, or credit impact.",
                 },
                 {
                   num: "03",
-                  icon: <img src="/images/cardpilot/market-gap/rocket-money.png" alt="Rocket Money" className="w-14 h-14 object-contain rounded-[14px]" />,
+                  icon: <img src="/images/Cardpilot/market-gap/rocket-money.png" alt="Rocket Money" className="w-14 h-14 object-contain rounded-[14px]" />,
                   title: "Budgeting apps\noptimize for spending reflection",
                   body: "Analysis happens after the purchase, not during it.",
                 },
@@ -274,7 +274,7 @@ export default function CardPilot() {
             />
             {/* Hypothesis image */}
             <img
-              src="/images/cardpilot/hypothesis/model.png"
+              src="/images/Cardpilot/hypothesis/model.png"
               alt="Hypothesis model"
               className="w-full md:w-1/2 object-contain mx-auto block"
               onError={(e) => { (e.target as HTMLImageElement).style.opacity = "0"; }}
@@ -344,7 +344,7 @@ export default function CardPilot() {
             <div className="mt-10">
               <h3 className="text-[16px] font-bold text-white mb-5">CardPilot Decision System</h3>
               <img
-                src="/images/cardpilot/system architecture/architecture.png"
+                src="/images/Cardpilot/system architecture/architecture.png"
                 alt="CardPilot Decision System"
                 className="w-full object-contain rounded-[16px]"
                 onError={(e) => { (e.target as HTMLImageElement).style.opacity = "0"; }}
@@ -372,7 +372,7 @@ export default function CardPilot() {
             />
             {/* Checkout flow image */}
             <img
-              src="/images/cardpilot/checkout/checkout-flow.png"
+              src="/images/Cardpilot/checkout/checkout-flow.png"
               alt="Checkout user flow"
               className="w-full object-contain mt-8 rounded-[16px]"
               onError={(e) => { (e.target as HTMLImageElement).style.opacity = "0"; }}
@@ -401,7 +401,7 @@ export default function CardPilot() {
             <div className="mt-10 flex justify-center">
               <div className="w-[90%] rounded-[20px] overflow-hidden">
                 <img
-                  src="/images/cardpilot/design-decision/visual-design.png"
+                  src="/images/Cardpilot/design-decision/visual-design.png"
                   alt="CardPilot visual design"
                   className="w-full object-cover"
                   onError={(e) => { (e.target as HTMLImageElement).style.opacity = "0"; }}
@@ -423,7 +423,7 @@ export default function CardPilot() {
               <div className="flex justify-center">
                 <div className="w-full md:w-[42%] rounded-[20px] overflow-hidden">
                   <video
-                    src="/images/cardpilot/design-decision/payment-flow.mp4"
+                    src="/images/Cardpilot/design-decision/payment-flow.mp4"
                     autoPlay
                     loop
                     muted
@@ -450,7 +450,7 @@ export default function CardPilot() {
               <div className="flex justify-center">
                 <div className="w-full md:w-[42%] rounded-[20px] overflow-hidden">
                   <video
-                    src="/images/cardpilot/design-decision/card-detail.mp4"
+                    src="/images/Cardpilot/design-decision/card-detail.mp4"
                     autoPlay
                     loop
                     muted
@@ -474,7 +474,7 @@ export default function CardPilot() {
                     Monetization must not influence decision logic.
                   </h2>
                   <img
-                    src="/images/cardpilot/integrity/offer.png"
+                    src="/images/Cardpilot/integrity/offer.png"
                     alt="Offer screen"
                     className="w-1/2 object-contain mx-auto"
                     onError={(e) => { (e.target as HTMLImageElement).style.opacity = "0"; }}
