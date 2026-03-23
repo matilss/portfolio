@@ -350,31 +350,40 @@ export default function WeGo() {
                 </div>
               }
             />
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 mt-6 md:max-w-[59.5%] md:mx-auto">
+            <div className="space-y-6 mt-6 mx-auto" style={{ maxWidth: "70%" }}>
               {[
+                { num: "00", title: "Onboarding", body: "The trip begins with creation and invitation. The trip creator sets the destination and dates, then invites members through a shared link. Once joined, every traveler enters the same trip space, where plans, decisions, and expenses are visible to everyone from the start.", video: "/images/WeGo/final product /onboarding.mp4" },
                 { num: "01", title: "Overview", body: "The trip overview acts as the group's shared control panel. Members, destination, dates, accommodation, and transportation live in one place, so every traveler sees the same plan.", video: "/images/WeGo/final product /overview.mp4" },
                 { num: "02", title: "Audio Chat", body: "Audio chat lets the group discuss options without leaving the planning space. The call lives inside the trip and ends cleanly once the decision is made — no persistent threads to scroll through.", video: "/images/WeGo/final product /audio chat.mp4" },
                 { num: "03", title: "Itinerary", body: "Activities are organized by day using a date-tab layout. Each entry links to navigation and details, making the plan easy to scan — which day, which activity, how to get there.", video: "/images/WeGo/final product /itinerary.mp4" },
                 { num: "04", title: "Poll", body: "Polls allow any member to propose options and the group to vote in real time. Once a decision is made, the result flows directly into the itinerary.", video: "/images/WeGo/final product /poll.mp4" },
                 { num: "05", title: "Bills", body: "Expenses are recorded as they happen — who paid and how the cost is split. The running balance stays visible throughout the trip, so there are no surprises at settlement.", video: "/images/WeGo/final product /bills.mp4" },
                 { num: "06", title: "Photos", body: "Photos live inside the same trip space used for planning, keeping memories tied to the shared trip rather than scattered across messaging apps.", video: "/images/WeGo/final product /photos.mp4" },
-              ].map((c) => (
-                <div key={c.num} className="rounded-[20px] overflow-hidden" style={{ background: "#131313", border: "1px solid rgba(255,255,255,0.07)" }}>
+              ].map((c, i) => {
+                const isEven = i % 2 === 0;
+                const textBlock = (
+                  <div className="flex flex-col justify-center gap-2 flex-1">
+                    <span className="text-[11px] font-semibold tracking-[0.14em] text-white/25 uppercase">{c.num}</span>
+                    <h3 className="text-[15px] font-semibold text-white leading-snug">{c.title}</h3>
+                    <p className="text-[14px] text-white/40 leading-relaxed">{c.body}</p>
+                  </div>
+                );
+                const videoBlock = (
                   <video
                     src={c.video}
                     autoPlay
                     loop
                     muted
                     playsInline
-                    className="w-full object-cover"
+                    className="w-full md:w-[29%] rounded-[12px] object-cover flex-shrink-0"
                   />
-                  <div className="p-5">
-                    <span className="text-[11px] font-semibold tracking-[0.14em] text-white/25 uppercase">{c.num}</span>
-                    <h3 className="text-[14px] font-semibold text-white mt-2 mb-1 leading-snug">{c.title}</h3>
-                    <p className="text-[13px] text-white/40 leading-relaxed">{c.body}</p>
+                );
+                return (
+                  <div key={c.num} className="flex flex-col md:flex-row gap-6 md:gap-[30%] items-center rounded-[20px] p-6" style={{ background: "#131313", border: "1px solid rgba(255,255,255,0.07)" }}>
+                    {isEven ? <>{textBlock}{videoBlock}</> : <>{videoBlock}{textBlock}</>}
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </SectionCard>
         </section>

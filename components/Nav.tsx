@@ -5,7 +5,7 @@ export default function Nav() {
   const [hovered, setHovered] = useState(false);
 
   return (
-    <header className="flex items-center justify-between px-4 md:px-[7vw] pt-5 pb-4 md:pt-10 md:pb-6 flex-shrink-0">
+    <header className="flex items-center justify-between px-4 md:px-[7vw] pt-[50px] pb-4 md:pt-10 md:pb-6 flex-shrink-0">
       {/* Left: avatar + name */}
       <div
         className="flex items-center gap-4 cursor-pointer group"

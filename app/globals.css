@@ -20,6 +20,20 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* Print styles */
+@media print {
+  html, body {
+    height: auto !important;
+    overflow: visible !important;
+  }
+  .h-screen {
+    height: auto !important;
+  }
+  .overflow-y-auto, .overflow-hidden {
+    overflow: visible !important;
+  }
+}
+
 /* Hide scrollbar but keep scroll functionality */
 .no-scrollbar::-webkit-scrollbar {
   display: none;

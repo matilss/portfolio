@@ -8,9 +8,11 @@ const navSections = [
   { id: "research", label: "Research" },
   { id: "market-gap", label: "Market Gap" },
   { id: "hypothesis", label: "Hypothesis" },
+  { id: "model", label: "System Architecture" },
+  { id: "onboarding", label: "Onboarding" },
   { id: "checkout", label: "Checkout" },
   { id: "design-decision", label: "Design Decision" },
-  { id: "integrity", label: "Integrity" },
+  { id: "integrity", label: "Business Model" },
   { id: "design-tradeoff", label: "Design Tradeoff" },
   { id: "measuring-success", label: "Measuring Success" },
   { id: "reflection", label: "Reflection" },
@@ -329,7 +331,7 @@ export default function CardPilot() {
                   <div className="space-y-3 text-[16px] text-white/70 leading-relaxed">
                     <p>At checkout, each card is evaluated across four signals:</p>
                     <ul className="space-y-1">
-                      {["reward rate", "bonus urgency", "utilization risk", "due-date proximity"].map((i) => (
+                      {["reward rate", "bonus progress", "utilization impact", "due-date proximity"].map((i) => (
                         <li key={i} className="flex items-center gap-2 text-white/45">
                           <span className="w-1 h-1 rounded-full bg-white/30 flex-shrink-0" />{i}
                         </li>
@@ -350,6 +352,35 @@ export default function CardPilot() {
                 onError={(e) => { (e.target as HTMLImageElement).style.opacity = "0"; }}
               />
             </div>
+          </SectionCard>
+        </section>
+
+        {/* Onboarding */}
+        <section id="onboarding" className="py-10 md:py-20 scroll-mt-20">
+          <SectionCard label="Onboarding">
+            <TwoCol
+              left={
+                <div className="flex flex-col gap-6 items-center">
+                  <h2 className="text-[clamp(20px,2vw,28px)] font-bold leading-snug tracking-tight w-full">
+                    Trust before intelligence.
+                  </h2>
+                  <video
+                    src="/images/Cardpilot/onboarding/onboarding.mp4"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-[43%] object-cover rounded-[20px]"
+                  />
+                </div>
+              }
+              right={
+                <div className="space-y-4 text-[16px] text-white/70 leading-relaxed">
+                  <p>CardPilot depends on accurate card data, which requires users to grant financial access during onboarding. Because permission introduces friction, the flow prioritizes clarity before access — explaining value, defining what data can and cannot be read, and making consent reversible.</p>
+                  <p>Card data is synchronized through secure financial integrations, allowing recommendations to update automatically as merchant context changes.</p>
+                </div>
+              }
+            />
           </SectionCard>
         </section>
 
@@ -377,6 +408,40 @@ export default function CardPilot() {
               className="w-full object-contain mt-8 rounded-[16px]"
               onError={(e) => { (e.target as HTMLImageElement).style.opacity = "0"; }}
             />
+
+            {/* Gas Station Checkout */}
+            <div className="mt-20">
+              <TwoCol
+                left={
+                  <div className="flex flex-col gap-6 items-center">
+                    <h3 className="text-[clamp(20px,2vw,28px)] font-bold leading-snug tracking-tight w-full">
+                      Gas Station Checkout Example
+                    </h3>
+                    <img
+                      src="/images/Cardpilot/checkout/payment 1.png"
+                      alt="Gas station checkout"
+                      className="w-[48%] object-contain rounded-[16px]"
+                      onError={(e) => { (e.target as HTMLImageElement).style.opacity = "0"; }}
+                    />
+                  </div>
+                }
+                right={
+                  <div className="space-y-4 text-[16px] text-white/70 leading-relaxed">
+                    <p>At checkout, CardPilot surfaces one recommendation supported by the two most decision-relevant signals.</p>
+                    <p>In this case:</p>
+                    <ul className="space-y-1">
+                      {["Highest reward rate on gas (3× points)", "Progress toward welcome bonus (42 days remaining)"].map((item) => (
+                        <li key={item} className="flex items-start gap-2 text-white/70">
+                          <span className="w-1 h-1 rounded-full bg-white/30 flex-shrink-0 mt-[10px]" />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                    <p>These signals explain why this card is recommended — without exposing the full scoring model.</p>
+                  </div>
+                }
+              />
+            </div>
           </SectionCard>
         </section>
 
@@ -464,37 +529,92 @@ export default function CardPilot() {
           </SectionCard>
         </section>
 
-        {/* Integrity */}
+        {/* Business Model */}
         <section id="integrity" className="py-10 md:py-20 scroll-mt-20">
-          <SectionCard label="Integrity">
+          <SectionCard label="Business Model">
             <TwoCol
               left={
-                <div className="flex flex-col gap-6">
-                  <h2 className="text-[clamp(20px,2vw,28px)] font-bold leading-snug tracking-tight">
-                    Monetization must not influence decision logic.
-                  </h2>
-                  <img
-                    src="/images/Cardpilot/integrity/offer.png"
-                    alt="Offer screen"
-                    className="w-1/2 object-contain mx-auto"
-                    onError={(e) => { (e.target as HTMLImageElement).style.opacity = "0"; }}
-                  />
-                </div>
+                <h2 className="text-[clamp(20px,2vw,28px)] font-bold leading-snug tracking-tight">
+                  Revenue exists outside the decision.
+                </h2>
               }
               right={
                 <div className="space-y-4 text-[16px] text-white/70 leading-relaxed">
-                  <p>CardPilot generates revenue through affiliate partnerships surfaced in the Offer tab. However, the checkout recommendation engine is structurally isolated from monetization.</p>
-                  <p>A sponsored card can appear in Offers — but cannot influence the recommendation score. This separation is deliberate. If users suspect the recommendation favors issuers, the product's core value collapses.</p>
-                  <p>Trust is architectural.</p>
+                  <p>CardPilot generates revenue without interfering with the recommendation engine.</p>
+                  <p>Monetization happens around the system — not inside it.</p>
                 </div>
               }
             />
-            <div className="mt-6 rounded-[20px] p-10 relative overflow-hidden" style={{ background: "linear-gradient(135deg, #0f0f0f 0%, #141414 100%)", border: "1px solid rgba(200,255,87,0.15)" }}>
+
+            {/* Partner Offers */}
+            <div className="mt-12">
+              <TwoCol
+                left={
+                  <div className="flex flex-col gap-6 items-center">
+                    <h3 className="text-[clamp(18px,1.8vw,24px)] font-bold leading-snug tracking-tight w-full">
+                      Partner Offers
+                    </h3>
+                    <img
+                      src="/images/Cardpilot/integrity/offer.png"
+                      alt="Offer screen"
+                      className="w-[50%] object-contain rounded-[16px]"
+                      onError={(e) => { (e.target as HTMLImageElement).style.opacity = "0"; }}
+                    />
+                  </div>
+                }
+                right={
+                  <div className="space-y-4 text-[16px] text-white/70 leading-relaxed">
+                    <p>Financial institutions can surface optional offers in the Offers tab.</p>
+                    <p>Examples include:</p>
+                    <ul className="space-y-1">
+                      {["New credit card applications", "Upgrade opportunities", "Limited-time welcome bonuses"].map((item) => (
+                        <li key={item} className="flex items-start gap-2 text-white/70">
+                          <span className="w-1 h-1 rounded-full bg-white/30 flex-shrink-0 mt-[10px]" />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                    <p>Partners pay CardPilot in two ways:</p>
+                    <ul className="space-y-1">
+                      {["Referral fees when users apply for a card", "Sponsored placement fees to feature offers within the Offers tab"].map((item) => (
+                        <li key={item} className="flex items-start gap-2 text-white/70">
+                          <span className="w-1 h-1 rounded-full bg-white/30 flex-shrink-0 mt-[10px]" />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                    <p>These placements remain separate from checkout recommendations.</p>
+                    <p>Recommendations are never influenced by commercial incentives.</p>
+                  </div>
+                }
+              />
+            </div>
+
+            {/* Transaction Partnerships */}
+            <div className="mt-12">
+              <TwoCol
+                left={
+                  <h3 className="text-[clamp(18px,1.8vw,24px)] font-bold leading-snug tracking-tight">
+                    Transaction Partnerships
+                  </h3>
+                }
+                right={
+                  <div className="space-y-4 text-[16px] text-white/70 leading-relaxed">
+                    <p>At scale, CardPilot may participate in transaction-level partnerships with issuing banks.</p>
+                    <p>Under this model, the system receives a small percentage of supported transactions.</p>
+                    <p>This represents long-term infrastructure revenue — not an early dependency.</p>
+                  </div>
+                }
+              />
+            </div>
+
+            {/* Product Principle banner */}
+            <div className="mt-12 rounded-[20px] p-10 relative overflow-hidden" style={{ background: "linear-gradient(135deg, #0f0f0f 0%, #141414 100%)", border: "1px solid rgba(200,255,87,0.15)" }}>
               <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-64 h-24 rounded-full blur-3xl opacity-20" style={{ background: "#c8ff57" }} />
               <div className="relative text-center">
                 <p className="text-[11px] font-semibold tracking-[0.16em] uppercase mb-5" style={{ color: "rgba(200,255,87,0.6)" }}>Product Principle</p>
                 <p className="text-[20px] lg:text-[24px] font-semibold text-white leading-snug tracking-tight max-w-[640px] mx-auto">
-                  "Trust is architectural. If users believe recommendations are influenced by commercial incentives, the product loses credibility — and the recommendation engine becomes meaningless."
+                  Trust is architectural. If users believe recommendations are influenced by commercial incentives, the product loses credibility — and the recommendation engine becomes meaningless.
                 </p>
               </div>
             </div>
