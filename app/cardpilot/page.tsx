@@ -245,7 +245,7 @@ export default function CardPilot() {
               ))}
             </div>
             {/* Focus question banner */}
-            <div className="mt-4 rounded-[20px] p-10 relative overflow-hidden" style={{ background: "linear-gradient(135deg, #0f0f0f 0%, #141414 100%)", border: "1px solid rgba(200,255,87,0.15)" }}>
+            <div className="mt-4 rounded-[20px] p-6 md:p-10 relative overflow-hidden" style={{ background: "linear-gradient(135deg, #0f0f0f 0%, #141414 100%)", border: "1px solid rgba(200,255,87,0.15)" }}>
               {/* Subtle glow */}
               <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-64 h-24 rounded-full blur-3xl opacity-20" style={{ background: "#c8ff57" }} />
               <div className="relative text-center">
@@ -283,7 +283,7 @@ export default function CardPilot() {
             />
 
             {/* Hypothesis banner */}
-            <div className="mt-4 rounded-[20px] p-10 relative overflow-hidden" style={{ background: "linear-gradient(135deg, #0f0f0f 0%, #141414 100%)", border: "1px solid rgba(200,255,87,0.15)" }}>
+            <div className="mt-4 rounded-[20px] p-6 md:p-10 relative overflow-hidden" style={{ background: "linear-gradient(135deg, #0f0f0f 0%, #141414 100%)", border: "1px solid rgba(200,255,87,0.15)" }}>
               <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-64 h-24 rounded-full blur-3xl opacity-20" style={{ background: "#c8ff57" }} />
               <div className="relative text-center">
                 <p className="text-[11px] font-semibold tracking-[0.16em] uppercase mb-5" style={{ color: "rgba(200,255,87,0.6)" }}>The core assumption being tested</p>
@@ -370,7 +370,7 @@ export default function CardPilot() {
                     loop
                     muted
                     playsInline
-                    className="w-[43%] object-cover rounded-[20px]"
+                    className="w-[75%] object-cover rounded-[20px]"
                   />
                 </div>
               }
@@ -420,7 +420,7 @@ export default function CardPilot() {
                     <img
                       src="/images/Cardpilot/checkout/payment 1.png"
                       alt="Gas station checkout"
-                      className="w-[48%] object-contain rounded-[16px]"
+                      className="w-[75%] object-contain rounded-[16px]"
                       onError={(e) => { (e.target as HTMLImageElement).style.opacity = "0"; }}
                     />
                   </div>
@@ -486,7 +486,7 @@ export default function CardPilot() {
               </div>
               <div className="hidden md:block" />
               <div className="flex justify-center">
-                <div className="w-full md:w-[42%] rounded-[20px] overflow-hidden">
+                <div className="w-[75%] md:w-[75%] rounded-[20px] overflow-hidden mx-auto">
                   <video
                     src="/images/Cardpilot/design-decision/payment-flow.mp4"
                     autoPlay
@@ -513,7 +513,7 @@ export default function CardPilot() {
               </div>
               <div className="hidden md:block" />
               <div className="flex justify-center">
-                <div className="w-full md:w-[42%] rounded-[20px] overflow-hidden">
+                <div className="w-[75%] md:w-[75%] rounded-[20px] overflow-hidden mx-auto">
                   <video
                     src="/images/Cardpilot/design-decision/card-detail.mp4"
                     autoPlay
@@ -557,7 +557,7 @@ export default function CardPilot() {
                     <img
                       src="/images/Cardpilot/integrity/offer.png"
                       alt="Offer screen"
-                      className="w-[50%] object-contain rounded-[16px]"
+                      className="w-[75%] object-contain rounded-[16px]"
                       onError={(e) => { (e.target as HTMLImageElement).style.opacity = "0"; }}
                     />
                   </div>
@@ -609,7 +609,7 @@ export default function CardPilot() {
             </div>
 
             {/* Product Principle banner */}
-            <div className="mt-12 rounded-[20px] p-10 relative overflow-hidden" style={{ background: "linear-gradient(135deg, #0f0f0f 0%, #141414 100%)", border: "1px solid rgba(200,255,87,0.15)" }}>
+            <div className="mt-12 rounded-[20px] p-6 md:p-10 relative overflow-hidden" style={{ background: "linear-gradient(135deg, #0f0f0f 0%, #141414 100%)", border: "1px solid rgba(200,255,87,0.15)" }}>
               <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-64 h-24 rounded-full blur-3xl opacity-20" style={{ background: "#c8ff57" }} />
               <div className="relative text-center">
                 <p className="text-[11px] font-semibold tracking-[0.16em] uppercase mb-5" style={{ color: "rgba(200,255,87,0.6)" }}>Product Principle</p>

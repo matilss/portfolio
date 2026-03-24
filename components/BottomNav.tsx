@@ -16,7 +16,7 @@ export default function BottomNav({ active, onChange }: Props) {
   const isHoverPreview = hovered !== null && hovered !== active;
 
   return (
-    <div className="flex justify-center pb-4 pt-3 flex-shrink-0">
+    <div className="flex justify-center pb-2 md:pb-[40px] pt-3 flex-shrink-0">
       <div className="relative flex bg-[#1a1a1a] rounded-full p-1">
         {/* Sliding pill */}
         <div
