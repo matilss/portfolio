@@ -169,7 +169,7 @@ export default function WeGo() {
               }
             />
             {/* Key insight banner */}
-            <div className="mt-9 rounded-[20px] p-10 relative overflow-hidden" style={{ background: "linear-gradient(135deg, #0f0f0f 0%, #141414 100%)", border: "1px solid rgba(255,140,50,0.15)" }}>
+            <div className="mt-9 rounded-[20px] p-6 md:p-10 relative overflow-hidden" style={{ background: "linear-gradient(135deg, #0f0f0f 0%, #141414 100%)", border: "1px solid rgba(255,140,50,0.15)" }}>
               <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-64 h-24 rounded-full blur-3xl opacity-20" style={{ background: "#ff8c32" }} />
               <div className="relative text-center">
                 <p className="text-[11px] font-semibold tracking-[0.16em] uppercase mb-5" style={{ color: "rgba(255,140,50,0.6)" }}>Key Insight</p>
@@ -263,7 +263,7 @@ export default function WeGo() {
             </div>
 
             {/* Key insight banner */}
-            <div className="mt-9 rounded-[20px] p-10 relative overflow-hidden" style={{ background: "linear-gradient(135deg, #0f0f0f 0%, #141414 100%)", border: "1px solid rgba(255,140,50,0.15)" }}>
+            <div className="mt-9 rounded-[20px] p-6 md:p-10 relative overflow-hidden" style={{ background: "linear-gradient(135deg, #0f0f0f 0%, #141414 100%)", border: "1px solid rgba(255,140,50,0.15)" }}>
               <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-64 h-24 rounded-full blur-3xl opacity-20" style={{ background: "#ff8c32" }} />
               <div className="relative text-center">
                 <p className="text-[11px] font-semibold tracking-[0.16em] uppercase mb-5" style={{ color: "rgba(255,140,50,0.6)" }}>How Might We</p>
@@ -350,7 +350,7 @@ export default function WeGo() {
                 </div>
               }
             />
-            <div className="space-y-6 mt-6 mx-auto" style={{ maxWidth: "70%" }}>
+            <div className="space-y-6 mt-6 w-full md:mx-auto" style={{ maxWidth: "min(70%, 100%)" }}>
               {[
                 { num: "00", title: "Onboarding", body: "The trip begins with creation and invitation. The trip creator sets the destination and dates, then invites members through a shared link. Once joined, every traveler enters the same trip space, where plans, decisions, and expenses are visible to everyone from the start.", video: "/images/WeGo/final product /onboarding.mp4" },
                 { num: "01", title: "Overview", body: "The trip overview acts as the group's shared control panel. Members, destination, dates, accommodation, and transportation live in one place, so every traveler sees the same plan.", video: "/images/WeGo/final product /overview.mp4" },

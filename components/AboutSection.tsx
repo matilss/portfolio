@@ -15,7 +15,7 @@ export default function AboutSection() {
     {
       emoji: "🌐",
       title: "Designer Between Cultures",
-      body: "As an ESL designer, I'm especially sensitive to clarity and accessibility. I care deeply about designing experiences that feel intuitive for people from different backgrounds.",
+      body: "As a multi-cultural designer, I'm especially sensitive to clarity and accessibility. I care deeply about designing experiences that feel intuitive for people from different backgrounds.",
     },
     {
       emoji: "🎨",

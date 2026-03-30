@@ -73,7 +73,7 @@ export default function CardPilot() {
       <div className="w-full px-4 md:px-[12vw] pt-20 md:pt-32 pb-0">
         <div className="w-full relative overflow-hidden rounded-t-[24px]" style={{ aspectRatio: "16/10.37", background: "#0a0a0a" }}>
           <img
-            src="/images/homepage/cardpilot.png"
+            src="/images/homepage/cardpilot.jpg"
             alt="CardPilot"
             className="w-full h-full object-cover"
             onError={(e) => { (e.target as HTMLImageElement).style.opacity = "0"; }}
