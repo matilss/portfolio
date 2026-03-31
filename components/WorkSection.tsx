@@ -25,14 +25,6 @@ const projects = [
     gradient: "from-[#0d0d12] to-[#1a1a2e]",
     href: "/wego",
   },
-  {
-    tag: "Real Estate · Web",
-    title: "Zibi",
-    subtitle: "A modern digital experience for a waterfront city development.",
-    image: "/images/homepage/zibi.jpg",
-    gradient: "from-[#0a1520] to-[#1a3040]",
-    href: "/zibi",
-  },
 ];
 
 function ProjectCard({ p, className = "" }: { p: typeof projects[0]; className?: string }) {

@@ -57,7 +57,7 @@ export default function CardPilot() {
       </nav>
 
       {/* Floating back button */}
-      <div className="fixed top-5 md:top-16 z-50 left-4 md:left-[12vw]">
+      <div className="fixed top-5 md:top-16 z-50 left-4 md:left-[7vw]">
         <Link
           href="/"
           className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#1a1a1a] border border-white/10 text-[13px] text-white/80 hover:text-white hover:bg-[#222] transition-all duration-200"

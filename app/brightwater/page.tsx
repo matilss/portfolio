@@ -8,12 +8,80 @@ const navSections = [
   { id: "role", label: "My Role" },
   { id: "problem", label: "Problem" },
   { id: "decision", label: "Key Decision" },
-  { id: "architecture", label: "Architecture" },
+  { id: "why", label: "Why This Worked" },
+  { id: "tradeoffs", label: "Tradeoffs & Risks" },
+  { id: "constraint", label: "Platform Constraints" },
+  { id: "architecture", label: "Information Architecture" },
   { id: "hierarchy", label: "Information Hierarchy" },
-  { id: "constraint", label: "Constraint" },
   { id: "outcome", label: "Outcome" },
   { id: "reflection", label: "Reflection" },
+  { id: "next", label: "Future Improvements" },
 ];
+
+function KeyDecisionComparison() {
+  const [leftOverlay, setLeftOverlay] = useState(false);
+  const [rightOverlay, setRightOverlay] = useState(false);
+
+  return (
+    <div className="mt-9 grid grid-cols-2 gap-4">
+      {/* Row 1: Text descriptions */}
+      <div>
+        <p className="text-[11px] font-semibold tracking-[0.12em] uppercase text-white/30 mb-1">Third-Party Proposal</p>
+        <p className="text-[16px] font-bold text-white mb-2">Vertical Browsing</p>
+        <p className="text-[14px] text-white/55 leading-relaxed mt-2">The third-party design followed a traditional vertical flow, stacking building content into scrollable sections.</p>
+        <p className="text-[14px] text-white/55 leading-relaxed mt-2">This approach aligned with familiar web behaviors but fragmented the browsing experience. As users scrolled through multiple sections, they frequently lost track of where they were within the larger development.</p>
+        <p className="text-[14px] text-white/55 leading-relaxed mt-2">Vertical navigation supported content depth, but weakened spatial continuity — a critical factor in multi-building exploration.</p>
+      </div>
+      <div>
+        <p className="text-[11px] font-semibold tracking-[0.12em] uppercase mb-1" style={{ color: "rgba(126,207,239,0.6)" }}>My Proposal</p>
+        <p className="text-[16px] font-bold text-white mb-2">Horizontal Navigation</p>
+        <p className="text-[14px] text-white/55 leading-relaxed mt-2">Instead of stacking content vertically, I proposed a horizontal navigation model that aligned buildings across a single continuous plane.</p>
+        <p className="text-[14px] text-white/55 leading-relaxed mt-2">This approach preserved spatial relationships between buildings and allowed users to transition between them without losing orientation. Navigation became directional rather than hierarchical, supporting natural comparison between locations.</p>
+        <p className="text-[14px] text-white/55 leading-relaxed mt-2">The horizontal model shifted the experience from scrolling through content to moving across space.</p>
+      </div>
+
+      {/* Row 2: Buttons */}
+      <div className="flex justify-end">
+        <button
+          onClick={() => setLeftOverlay(!leftOverlay)}
+          className="flex items-center gap-2 px-3 py-1.5 rounded-full text-[13px] font-semibold transition-all duration-200"
+          style={{ background: "rgba(255,255,255,0.07)", color: leftOverlay ? "#fff" : "rgba(255,255,255,0.5)", border: "1px solid rgba(255,255,255,0.12)" }}
+        >
+          User perception overlay
+          <div className="relative w-8 h-4 rounded-full transition-all duration-200 flex-shrink-0" style={{ background: leftOverlay ? "rgba(255,255,255,0.4)" : "rgba(255,255,255,0.15)" }}>
+            <div className="absolute top-0.5 w-3 h-3 rounded-full bg-white transition-all duration-200" style={{ left: leftOverlay ? "18px" : "2px" }} />
+          </div>
+        </button>
+      </div>
+      <div className="flex justify-end">
+        <button
+          onClick={() => setRightOverlay(!rightOverlay)}
+          className="flex items-center gap-2 px-3 py-1.5 rounded-full text-[13px] font-semibold transition-all duration-200"
+          style={{ background: "rgba(255,255,255,0.07)", color: rightOverlay ? "#7ecfef" : "rgba(255,255,255,0.5)", border: "1px solid rgba(255,255,255,0.12)" }}
+        >
+          User perception overlay
+          <div className="relative w-8 h-4 rounded-full transition-all duration-200 flex-shrink-0" style={{ background: rightOverlay ? "rgba(126,207,239,0.5)" : "rgba(255,255,255,0.15)" }}>
+            <div className="absolute top-0.5 w-3 h-3 rounded-full bg-white transition-all duration-200" style={{ left: rightOverlay ? "18px" : "2px" }} />
+          </div>
+        </button>
+      </div>
+
+      {/* Row 3: Image boxes */}
+      <div className="rounded-[20px] p-4" style={{ background: "#141414", border: "1.5px solid rgba(255,255,255,0.08)" }}>
+        <div className="relative w-full">
+          <img src="/images/Brightwater/key decision/scroll-base reading 1.png" alt="Scroll-based reading" className="w-full rounded-[12px]" onError={(e) => { (e.target as HTMLImageElement).style.opacity = "0"; }} />
+          <img src="/images/Brightwater/key decision/scroll-base reading 2.png" alt="Scroll-based reading overlay" className="absolute inset-0 w-full rounded-[12px] transition-opacity duration-300" style={{ opacity: leftOverlay ? 1 : 0 }} onError={(e) => { (e.target as HTMLImageElement).style.opacity = "0"; }} />
+        </div>
+      </div>
+      <div className="rounded-[20px] p-4 flex items-center justify-center" style={{ background: "#141414", border: "1.5px solid rgba(126,207,239,0.4)" }}>
+        <div className="relative w-full">
+          <img src="/images/Brightwater/key decision/spatial progression 1.png" alt="Spatial progression" className="w-full rounded-[12px]" onError={(e) => { (e.target as HTMLImageElement).style.opacity = "0"; }} />
+          <img src="/images/Brightwater/key decision/spatial progression 2.png" alt="Spatial progression overlay" className="absolute inset-0 w-full rounded-[12px] transition-opacity duration-300" style={{ opacity: rightOverlay ? 1 : 0 }} onError={(e) => { (e.target as HTMLImageElement).style.opacity = "0"; }} />
+        </div>
+      </div>
+    </div>
+  );
+}
 
 function SectionCard({ label, children, noPaddingBottom }: { label: string; children: React.ReactNode; noPaddingBottom?: boolean }) {
   return (
@@ -78,7 +146,7 @@ export default function Brightwater() {
       </nav>
 
       {/* Floating back button */}
-      <div className="fixed top-5 md:top-16 z-50 left-4 md:left-[12vw]">
+      <div className="fixed top-5 md:top-16 z-50 left-4 md:left-[7vw]">
         <Link
           href="/"
           className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#1a1a1a] border border-white/10 text-[13px] text-white/80 hover:text-white hover:bg-[#222] transition-all duration-200"
@@ -123,7 +191,6 @@ export default function Brightwater() {
 
               <div className="space-y-5">
                 {[
-                  { label: "Client", value: "Dream Unlimited" },
                   { label: "Year", value: "2025" },
                   { label: "Status", value: "Live — Brightwater Experience Centre, Port Credit" },
                   { label: "Role", value: "Sole Product Designer" },
@@ -140,8 +207,8 @@ export default function Brightwater() {
             {/* Right: overview summary */}
             <div className="flex flex-col justify-end">
               <div className="space-y-4 text-[16px] text-white/60 leading-relaxed">
-                <p>Brightwater is a 72-acre waterfront community that will take years to fully build. Yet buyers were making $700K+ purchase decisions long before construction finished. Traditional tools — scale models, brochures, and conversations — weren't enough to communicate the scale, lifestyle, and long-term vision of the community.</p>
-                <p>I designed and delivered an interactive kiosk experience that helped buyers understand the neighbourhood spatially, emotionally, and functionally — transforming the sales centre into an immersive decision-making environment.</p>
+                <p>Buyers were making $700K+ purchase decisions inside a kiosk that couldn't maintain spatial orientation. Conversations stalled, comparisons broke down, and sales teams repeatedly had to restart explanations.</p>
+                <p>This wasn't a content problem — it was a navigation and mental model problem. I redesigned the browsing experience to preserve spatial continuity, support live conversations, and help buyers make confident decisions in real time.</p>
               </div>
             </div>
           </div>
@@ -165,9 +232,9 @@ export default function Brightwater() {
               }
             />
             <img
-              src="/images/Brightwater/context/Masterplan.jpg"
-              alt="Brightwater Masterplan"
-              className="w-full mt-9 rounded-[16px] object-contain"
+              src="/images/Brightwater/context/Aerial_edited.jpg"
+              alt="Brightwater Aerial"
+              className="w-full mt-9 rounded-[16px] object-cover"
               onError={(e) => { (e.target as HTMLImageElement).style.opacity = "0"; }}
             />
           </SectionCard>
@@ -188,6 +255,12 @@ export default function Brightwater() {
                 </div>
               }
             />
+            <img
+              src="/images/Brightwater/my role/Sprint Timeline BW.png"
+              alt="Sprint Timeline"
+              className="w-full mt-9 rounded-[16px] object-contain"
+              onError={(e) => { (e.target as HTMLImageElement).style.opacity = "0"; }}
+            />
           </SectionCard>
         </section>
 
@@ -202,14 +275,10 @@ export default function Brightwater() {
               }
               right={
                 <div className="space-y-4 text-[16px] text-white/70 leading-relaxed">
-                  <p>Before designing anything, I spent time observing how buyers interacted with existing materials in the sales centre.</p>
-                  <p>The challenge wasn't lack of content — it was lack of structure. With five buildings, multiple unit types, shared amenities, and an evolving neighbourhood, buyers didn't know where to begin. Conversations stalled not because answers weren't available, but because buyers couldn't mentally organize what they were seeing.</p>
-                  <p>I also identified two distinct user modes:</p>
-                  <ul className="list-disc list-inside space-y-1 text-white/60">
-                    <li>Self-guided buyers exploring independently</li>
-                    <li>Sales-assisted buyers navigating alongside a representative</li>
-                  </ul>
-                  <p>Any solution needed to support both behaviors seamlessly.</p>
+                  <p>Buyers weren't struggling to find information — they were struggling to stay oriented.</p>
+                  <p>Each building contained multiple unit types, and navigation followed a traditional vertical browsing model. As buyers moved between sections, they lost context and needed repeated assistance to reorient themselves.</p>
+                  <p>In a sales environment where conversations happen live, hesitation slows momentum. Every moment spent navigating instead of discussing units weakened the flow of the interaction.</p>
+                  <p>The real challenge was not access — it was orientation.</p>
                 </div>
               }
             />
@@ -225,7 +294,7 @@ export default function Brightwater() {
             <div className="mt-9 rounded-[20px] p-6 md:p-10 relative overflow-hidden" style={{ background: "linear-gradient(135deg, #0f0f0f 0%, #141414 100%)", border: "1px solid rgba(13,59,79,0.6)" }}>
               <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-64 h-24 rounded-full blur-3xl opacity-40" style={{ background: "#0D3B4F" }} />
               <div className="relative text-center">
-                <p className="text-[11px] font-semibold tracking-[0.16em] uppercase mb-5" style={{ color: "rgba(13,59,79,0.9)" }}>How Might We</p>
+                <p className="text-[11px] font-semibold tracking-[0.16em] uppercase mb-5" style={{ color: "#7ecfef" }}>How Might We</p>
                 <p className="text-[20px] lg:text-[24px] font-semibold text-white leading-snug tracking-tight max-w-[640px] mx-auto">
                   Design a single, coherent experience that orients buyers spatially and emotionally before asking them to evaluate individual units — and that serves both self-guided exploration and sales-rep-led conversation?
                 </p>
@@ -240,21 +309,103 @@ export default function Brightwater() {
             <TwoCol
               left={
                 <h2 className="text-[clamp(24px,2.5vw,36px)] font-bold leading-snug tracking-tight">
-                  Designing for the physical environment, not the web.
+                  Choosing a Navigation Model.
                 </h2>
               }
               right={
                 <div className="space-y-4 text-[16px] text-white/70 leading-relaxed">
-                  <p>The third-party vendor initially proposed replicating the existing Brightwater website structure on the kiosk — same content hierarchy, same scroll-based navigation, simply scaled to a larger screen.</p>
-                  <p>I chose not to follow that direction.</p>
-                  <p>A public kiosk operates in a fundamentally different environment than a desktop or mobile device. Buyers are standing, often in conversation with a sales representative, interacting through touch rather than mouse precision. The experience needs to be fast to understand, easy to navigate, and forgiving of hesitation. In this context, vertically scrolling content increases cognitive load and creates disorientation — especially when users are already trying to understand a complex community with multiple buildings, amenities, and lifestyle components.</p>
-                  <p>Rather than adapting a web pattern to a physical environment, I redesigned the experience around how people actually behave in the sales centre — standing, scanning, and making decisions in conversation.</p>
+                  <p>Early exploration revealed two viable navigation approaches: a vertical browsing model proposed by a third-party vendor, and a horizontal navigation model developed internally.</p>
+                </div>
+              }
+            />
+            <KeyDecisionComparison />
+            <div className="mt-9 rounded-[20px] p-6 md:p-10 relative overflow-hidden" style={{ background: "linear-gradient(135deg, #0f0f0f 0%, #141414 100%)", border: "1px solid rgba(13,59,79,0.4)" }}>
+              <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-64 h-24 rounded-full blur-3xl opacity-30" style={{ background: "#0D3B4F" }} />
+              <div className="relative text-center">
+                <p className="text-[11px] font-semibold tracking-[0.16em] uppercase mb-5" style={{ color: "#7ecfef" }}>Foundation Constraint</p>
+                <p className="text-[20px] lg:text-[24px] font-semibold text-white leading-snug tracking-tight max-w-[640px] mx-auto">
+                  All navigation had to live within a single page.
+                </p>
+              </div>
+            </div>
+          </SectionCard>
+        </section>
+
+        {/* Why This Worked */}
+        <section id="why" className="py-10 md:py-20 scroll-mt-20">
+          <SectionCard label="Why This Worked">
+            <TwoCol
+              left={
+                <h2 className="text-[clamp(24px,2.5vw,36px)] font-bold leading-snug tracking-tight">The design worked because it matched how people actually use the kiosk.</h2>
+              }
+              right={
+                <p className="text-[16px] text-white/70 leading-relaxed">The horizontal navigation model succeeded because it aligned with how users physically interacted with the kiosk environment. Buyers explored the system while standing and speaking with sales representatives, requiring fast recognition, minimal hesitation, and clear spatial continuity. These behavioral realities informed several key design principles that shaped the final structure.</p>
+              }
+            />
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-9">
+              {[
+                { num: "01", title: "Scanning Behavior", hook: "Standing users scan, not read", body: "Buyers interact with the kiosk while standing. A horizontal layout supports quick visual scanning instead of long vertical reading." },
+                { num: "02", title: "Visibility", hook: "Fully visible content reduces hesitation", body: "Keeping major navigation elements visible at all times helps users understand where they are without scrolling." },
+                { num: "03", title: "Conversation Support", hook: "Navigation supports live conversations", body: "Sales representatives guide buyers in real time. Single-page navigation allows fast transitions without interrupting discussions." },
+                { num: "04", title: "Touch Usability", hook: "Large touch targets improve usability", body: "Horizontal grouping enabled larger interactive zones, improving accuracy and comfort on touch-based screens." },
+              ].map((c) => (
+                <div key={c.num} className="rounded-[16px] p-6" style={{ background: "#181818" }}>
+                  <p className="text-[11px] font-semibold tracking-[0.12em] uppercase text-white/30 mb-3">{c.num} — {c.title}</p>
+                  <p className="text-[15px] font-semibold text-white mb-2">{c.hook}</p>
+                  <p className="text-[14px] text-white/50 leading-relaxed">{c.body}</p>
+                </div>
+              ))}
+            </div>
+          </SectionCard>
+        </section>
+
+        {/* Tradeoffs & Risks */}
+        <section id="tradeoffs" className="py-10 md:py-20 scroll-mt-20">
+          <SectionCard label="Tradeoffs & Risks">
+            <TwoCol
+              left={
+                <h2 className="text-[clamp(24px,2.5vw,36px)] font-bold leading-snug tracking-tight">No design decision is risk-free — adopting a horizontal model required balancing spatial clarity with technical and usability constraints.</h2>
+              }
+              right={
+                <p className="text-[16px] text-white/70 leading-relaxed">No real design decision is risk-free. While the horizontal model improved spatial clarity, it introduced several technical and usability considerations that required careful balancing.</p>
+              }
+            />
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-9">
+              {[
+                { num: "01", title: "Content Density", risk: "Risk: Horizontal layouts increase visual density.", body: "I introduced strict grouping rules and spacing constraints to preserve visual clarity while maintaining spatial continuity." },
+                { num: "02", title: "Performance", risk: "Risk: Slower loading", body: "I prioritized critical content, reduced media weight, and coordinated staged loading strategies with developers to maintain responsive interactions." },
+                { num: "03", title: "Development Complexity", risk: "Risk: Custom navigation logic", body: "I standardized navigation behaviors and transitions early, reducing implementation complexity while preserving usability." },
+                { num: "04", title: "Interaction Accuracy", risk: "Risk: Touch precision", body: "I designed oversized touch targets and validated spacing to ensure reliable interaction across large-format screens." },
+              ].map((c) => (
+                <div key={c.num} className="rounded-[16px] p-6" style={{ background: "#181818" }}>
+                  <p className="text-[11px] font-semibold tracking-[0.12em] uppercase text-white/30 mb-3">{c.num} — {c.title}</p>
+                  <p className="text-[13px] font-semibold mb-2" style={{ color: "#f87171" }}>{c.risk}</p>
+                  <p className="text-[14px] text-white/50 leading-relaxed">{c.body}</p>
+                </div>
+              ))}
+            </div>
+          </SectionCard>
+        </section>
+
+        {/* Platform Constraints */}
+        <section id="constraint" className="py-10 md:py-20 scroll-mt-20">
+          <SectionCard label="Platform Constraints">
+            <TwoCol
+              left={
+                <h2 className="text-[clamp(24px,2.5vw,36px)] font-bold leading-snug tracking-tight">
+                  Interactive map navigation was not supported by the third-party platform.
+                </h2>
+              }
+              right={
+                <div className="space-y-4 text-[16px] text-white/70 leading-relaxed">
+                  <p>The initial concept included an interactive community map that allowed users to select buildings directly from the master plan. However, the platform supported only static image rendering, preventing dynamic click-based navigation.</p>
+                  <p>To maintain usability, I restructured the experience into dedicated residence pages. This decision directly influenced the site architecture, ensuring each building remained individually accessible while preserving a clear sense of community structure.</p>
                 </div>
               }
             />
             <div className="mt-9 flex justify-center">
               <video
-                src="/images/Brightwater/key decision/bw web 2.mp4"
+                src="/images/Brightwater/platform constraint/interactive map.mp4"
                 autoPlay
                 loop
                 muted
@@ -262,56 +413,23 @@ export default function Brightwater() {
                 className="w-full rounded-[20px] object-cover"
               />
             </div>
-            <div className="mt-9 rounded-[20px] p-6 md:p-10 relative overflow-hidden" style={{ background: "linear-gradient(135deg, #0f0f0f 0%, #141414 100%)", border: "1px solid rgba(13,59,79,0.4)" }}>
-              <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-64 h-24 rounded-full blur-3xl opacity-30" style={{ background: "#0D3B4F" }} />
-              <div className="relative text-center">
-                <p className="text-[11px] font-semibold tracking-[0.16em] uppercase mb-5" style={{ color: "#7ecfef" }}>Single Product Constraint</p>
-                <p className="text-[20px] lg:text-[24px] font-semibold text-white leading-snug tracking-tight max-w-[640px] mx-auto">
-                  Every screen must be fully contained within the display — no vertical scrolling.
-                </p>
-              </div>
-            </div>
           </SectionCard>
         </section>
 
         {/* Architecture */}
         <section id="architecture" className="py-10 md:py-20 scroll-mt-20">
-          <SectionCard label="Architecture">
+          <SectionCard label="Information Architecture">
             <div className="space-y-12">
 
               <TwoCol
                 left={
                   <h2 className="text-[clamp(24px,2.5vw,36px)] font-bold leading-snug tracking-tight">
-                    Two navigation tiers, working together.
+                    Platform constraints directly shaped the site structure.
                   </h2>
                 }
                 right={
                   <div className="space-y-6 text-[16px] text-white/70 leading-relaxed">
-                    <p>The system needed to support deep content without overwhelming users. I designed a dual-navigation model:</p>
-                    <div className="space-y-2">
-                      <p className="text-[12px] font-semibold tracking-[0.12em] uppercase text-white/40">Global Navigation</p>
-                      <ul className="space-y-1 text-white/60">
-                        {["Overview", "Masterplan", "Clubhouse", "Port Credit", "Residences", "Gallery"].map((item) => (
-                          <li key={item} className="flex items-center gap-2">
-                            <span className="w-1 h-1 rounded-full bg-white/30 flex-shrink-0" />
-                            {item}
-                          </li>
-                        ))}
-                      </ul>
-                      <p className="text-white/50 pt-1">This created a persistent mental model of the entire community.</p>
-                    </div>
-                    <div className="space-y-2">
-                      <p className="text-[12px] font-semibold tracking-[0.12em] uppercase text-white/40">Contextual Navigation — within each building</p>
-                      <ul className="space-y-1 text-white/60">
-                        {["Location", "Features & Finishes", "Amenities", "Floorplans"].map((item) => (
-                          <li key={item} className="flex items-center gap-2">
-                            <span className="w-1 h-1 rounded-full bg-white/30 flex-shrink-0" />
-                            {item}
-                          </li>
-                        ))}
-                      </ul>
-                      <p className="text-white/50 pt-1">This allowed buyers to explore deeply without losing orientation.</p>
-                    </div>
+                    <p>Without support for interactive maps, each residence required its own dedicated entry point. I designed a modular site map that allowed users to explore buildings independently while maintaining a cohesive view of the broader community.</p>
                     <p>Maintaining consistency across five distinct buildings was critical. Buyers needed to move between buildings without relearning the interface.</p>
                   </div>
                 }
@@ -359,60 +477,40 @@ export default function Brightwater() {
           </SectionCard>
         </section>
 
-        {/* Constraint */}
-        <section id="constraint" className="py-10 md:py-20 scroll-mt-20">
-          <SectionCard label="Constraint">
-            <TwoCol
-              left={
-                <h2 className="text-[clamp(24px,2.5vw,36px)] font-bold leading-snug tracking-tight">
-                  Designing within platform limitations.
-                </h2>
-              }
-              right={
-                <div className="space-y-4 text-[16px] text-white/70 leading-relaxed">
-                  <p>My original vision included an interactive masterplan where buyers could tap buildings directly on the map.</p>
-                  <p>The platform couldn't support image-based interaction hotspots.</p>
-                  <p>Rather than abandoning the spatial model, I restructured the experience into two coordinated parts:</p>
-                  <ul className="space-y-1 text-white/60">
-                    <li className="flex items-center gap-2"><span className="w-1 h-1 rounded-full bg-white/30 flex-shrink-0" />A static aerial masterplan for spatial context</li>
-                    <li className="flex items-center gap-2"><span className="w-1 h-1 rounded-full bg-white/30 flex-shrink-0" />Dedicated building pages for detailed exploration</li>
-                  </ul>
-                  <p>The persistent global navigation became the bridge between them.</p>
-                  <p>This preserved spatial clarity while working within technical limitations — and in practice, reduced visual clutter that an interactive map might have introduced.</p>
-                </div>
-              }
-            />
-          </SectionCard>
-        </section>
-
         {/* Outcome */}
         <section id="outcome" className="py-10 md:py-20 scroll-mt-20">
           <SectionCard label="Outcome">
             <TwoCol
               left={
                 <h2 className="text-[clamp(24px,2.5vw,36px)] font-bold leading-snug tracking-tight">
-                  Became the centrepiece of the sales experience.
+                  Improving Navigation Confidence.
                 </h2>
               }
               right={
-                <div className="space-y-6 text-[16px] text-white/70 leading-relaxed">
-                  <p>Following launch at the Brightwater Experience Centre:</p>
-                  <div className="grid grid-cols-1 gap-6">
-                    {[
-                      { stat: "+33%", label: "Increase in daily views" },
-                      { stat: "+23%", label: "Increase in client signups" },
-                    ].map((item) => (
-                      <div key={item.stat} className="rounded-[16px] p-6" style={{ background: "#181818" }}>
-                        <p className="text-[clamp(28px,3vw,40px)] font-bold text-white tracking-tight leading-none mb-2">{item.stat}</p>
-                        <p className="text-[14px] text-white/50">{item.label}</p>
-                      </div>
-                    ))}
-                  </div>
-                  <p>Sales teams reported significantly higher buyer engagement and smoother guided conversations.</p>
-                  <p>The kiosk became the primary storytelling tool within the sales centre — replacing static materials as the main way buyers explored the community.</p>
+                <div className="space-y-4 text-[16px] text-white/70 leading-relaxed">
+                  <p>Following implementation, the redesigned navigation significantly improved how buyers explored the development.</p>
+                  <p className="text-white/50 text-[13px] font-semibold uppercase tracking-widest">Key behavioral improvements</p>
+                  <ul className="space-y-1 text-white/60">
+                    <li className="flex items-start gap-2"><span className="w-1 h-1 rounded-full bg-white/30 flex-shrink-0 mt-2" />Buyers moved between buildings more confidently without needing assistance.</li>
+                    <li className="flex items-start gap-2"><span className="w-1 h-1 rounded-full bg-white/30 flex-shrink-0 mt-2" />Sales conversations flowed more naturally without repeated reorientation.</li>
+                    <li className="flex items-start gap-2"><span className="w-1 h-1 rounded-full bg-white/30 flex-shrink-0 mt-2" />Users spent more time comparing units across multiple buildings.</li>
+                  </ul>
+                  <p>The redesigned system reduced hesitation and allowed buyers to focus on evaluating units rather than navigating the interface.</p>
                 </div>
               }
             />
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-9">
+              {[
+                { stat: "+33%", label: "Increase in daily exploration activity", body: "Buyers navigated across more sections within a single session, indicating stronger engagement." },
+                { stat: "+23%", label: "Increase in client signups", body: "Improved clarity and confidence supported faster decision-making during sales interactions." },
+              ].map((item) => (
+                <div key={item.stat} className="rounded-[16px] p-6" style={{ background: "#181818" }}>
+                  <p className="text-[clamp(28px,3vw,40px)] font-bold text-white tracking-tight leading-none mb-2">{item.stat}</p>
+                  <p className="text-[14px] font-semibold text-white/70 mb-1">{item.label}</p>
+                  <p className="text-[13px] text-white/40 leading-relaxed">{item.body}</p>
+                </div>
+              ))}
+            </div>
           </SectionCard>
         </section>
 
@@ -422,17 +520,17 @@ export default function Brightwater() {
             <TwoCol
               left={
                 <h2 className="text-[clamp(24px,2.5vw,36px)] font-bold leading-snug tracking-tight">
-                  Designing systems, not just screens.
+                  Designing Systems, Not Screens.
                 </h2>
               }
               right={
-                <p className="text-[16px] text-white/70 leading-relaxed">This project reinforced that good product design isn't just about ideal solutions — it's about making strong decisions within real-world constraints. Platform limitations, physical environments, and evolving stakeholder needs all shaped the final experience. Rather than treating constraints as blockers, I learned to use them to sharpen focus and prioritize what mattered most to users.</p>
+                <p className="text-[16px] text-white/70 leading-relaxed">This project reinforced the importance of designing beyond the screen — considering physical environments, technical constraints, and long-term system scalability. It shifted my focus from building pages to designing structured experiences that support real-world interactions.</p>
               }
             />
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-9">
               {[
-                { num: "01", title: "Push platform validation earlier", body: "Platform limitations influenced more design decisions than expected. In future projects, I would validate technical capabilities earlier to protect key interaction models before committing to architecture decisions." },
-                { num: "02", title: "Extend the experience beyond the kiosk", body: "The kiosk supported in-person exploration, but buyers ultimately make decisions at home. A post-visit layer — allowing users to save floor plans and receive follow-up materials — would extend the journey beyond the physical sales centre and support long-term decision-making." },
+                { num: "01", title: "Designing for Physical Context", body: "Designing for a kiosk environment required understanding how users physically interact with the interface — standing, scanning, and engaging in conversations. This project strengthened my ability to align interface structure with real-world behaviors, not just screen layouts." },
+                { num: "02", title: "Thinking in Systems, Not Pages", body: "Moving to a single-page navigation model required careful planning of structure, hierarchy, and scalability. This experience reinforced the value of designing flexible foundations that support future expansion without requiring structural redesign." },
               ].map((c) => (
                 <div key={c.num} className="rounded-[16px] p-6" style={{ background: "#181818" }}>
                   <p className="text-[11px] font-semibold tracking-[0.12em] uppercase text-white/30 mb-3">{c.num}</p>
@@ -441,6 +539,29 @@ export default function Brightwater() {
                 </div>
               ))}
             </div>
+          </SectionCard>
+        </section>
+
+        {/* What I Would Improve Next */}
+        <section id="next" className="py-10 md:py-20 scroll-mt-20">
+          <SectionCard label="Future Improvements">
+            <TwoCol
+              left={
+                <h2 className="text-[clamp(24px,2.5vw,36px)] font-bold leading-snug tracking-tight">
+                  What I Would Improve Next.
+                </h2>
+              }
+              right={
+                <div className="space-y-4 text-[16px] text-white/70 leading-relaxed">
+                  <p>Given more time, I would explore:</p>
+                  <ul className="space-y-2 text-white/60">
+                    <li className="flex items-start gap-2"><span className="w-1 h-1 rounded-full bg-white/30 flex-shrink-0 mt-2" />Adding spatial previews between buildings to strengthen location awareness</li>
+                    <li className="flex items-start gap-2"><span className="w-1 h-1 rounded-full bg-white/30 flex-shrink-0 mt-2" />Introducing personalized filtering to support faster unit discovery</li>
+                    <li className="flex items-start gap-2"><span className="w-1 h-1 rounded-full bg-white/30 flex-shrink-0 mt-2" />Conducting longitudinal usability testing to measure decision speed over time</li>
+                  </ul>
+                </div>
+              }
+            />
           </SectionCard>
         </section>
 
