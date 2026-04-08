@@ -2,6 +2,14 @@
 
 const projects = [
   {
+    tag: "Life Sciences · Enterprise SaaS",
+    title: "Quality Intelligence",
+    subtitle: "Redesigning pharmaceutical QMS investigation workflows.",
+    image: "/images/veeva system/overview/veeva.png",
+    gradient: "from-[#0a0f1a] to-[#0f1a30]",
+    href: "/quality",
+  },
+  {
     tag: "Fintech · Mobile",
     title: "CardPilot",
     subtitle: "A checkout intelligence engine for multi-card users.",
@@ -27,7 +35,7 @@ const projects = [
   },
 ];
 
-function ProjectCard({ p, className = "" }: { p: typeof projects[0]; className?: string }) {
+function ProjectCard({ p, className = "", imageClass = "" }: { p: typeof projects[0]; className?: string; imageClass?: string }) {
   return (
     <a
       href={p.href}
@@ -39,7 +47,7 @@ function ProjectCard({ p, className = "" }: { p: typeof projects[0]; className?:
         <img
           src={p.image}
           alt={p.title}
-          className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700 ease-out"
+          className={`absolute inset-0 w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700 ease-out ${imageClass}`}
           draggable={false}
           onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }}
         />
@@ -88,7 +96,7 @@ export default function WorkSection() {
           </p>
         </div>
         {projects.map((p) => (
-          <ProjectCard key={p.title} p={p} className="block w-full aspect-[4/3]" />
+          <ProjectCard key={p.title} p={p} className="block w-full aspect-[4/3]" imageClass={p.href === "/quality" ? "object-top" : ""} />
         ))}
         <div className="h-4" />
       </div>
@@ -131,7 +139,7 @@ export default function WorkSection() {
           </p>
         </div>
         {projects.map((p, i) => (
-          <ProjectCard key={p.title} p={p} className={`flex-shrink-0 w-[43vw] h-[75%] ${i === 0 ? "ml-10" : ""}`} />
+          <ProjectCard key={p.title} p={p} className={`flex-shrink-0 w-[43vw] h-[75%] ${i === 0 ? "ml-10" : ""}`} imageClass={p.href === "/quality" ? "object-top" : ""} />
         ))}
         <div className="flex-shrink-0 w-1" />
       </div>
