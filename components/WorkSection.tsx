@@ -54,7 +54,7 @@ function ProjectCard({ p, className = "", imageClass = "" }: { p: typeof project
       ) : null}
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
       <div className="absolute top-5 left-5">
-        <span className="inline-flex items-center px-3 py-1 rounded-full text-[12px] font-medium tracking-wide text-white border border-white/20 backdrop-blur-md" style={{ background: "rgba(0,0,0,0.3)" }}>
+        <span className="inline-flex items-center px-3 py-1 rounded-full text-[12px] font-medium tracking-wide text-white border border-white/20 backdrop-blur-md whitespace-nowrap" style={{ background: "rgba(0,0,0,0.3)" }}>
           {p.tag}
         </span>
       </div>
@@ -82,17 +82,12 @@ export default function WorkSection() {
           <h1 className="text-white font-bold text-[clamp(30px,8vw,48px)] leading-[1.05] tracking-[-0.03em] mb-4">
             Designing{" "}
             <span className="text-[#4a9eff]">scalable</span>{" "}
-            products for{" "}
+            systems for{" "}
             <span className="text-[#4a9eff]">complex</span>{" "}
-            systems
+            products
           </h1>
           <p className="text-[#707070] text-[14px] leading-relaxed">
-            I design end-to-end product experiences that simplify complex systems
-            and drive meaningful outcomes. By combining{" "}
-            <span className="text-[#6ab4ff]/80">product thinking</span>,{" "}
-            <span className="text-[#6ab4ff]/80">UX strategy</span>, and strong
-            visual execution, I create solutions that scale with both user needs
-            and business goals.
+            I design scalable product systems that transform fragmented workflows into structured, reusable knowledge. My work focuses on reducing operational friction, improving decision-making, and helping complex organizations move faster with confidence.
           </p>
         </div>
         {projects.map((p) => (
@@ -125,17 +120,12 @@ export default function WorkSection() {
           <h1 className="text-white font-bold text-[clamp(34px,4vw,66px)] leading-[1.05] tracking-[-0.03em] mb-6">
             Designing{" "}
             <span className="text-[#4a9eff]">scalable</span>{" "}
-            products for{" "}
+            systems for{" "}
             <span className="text-[#4a9eff]">complex</span>{" "}
-            systems
+            products
           </h1>
           <p className="text-[#707070] text-[16px] leading-relaxed w-full">
-            I design end-to-end product experiences that simplify complex systems
-            and drive meaningful outcomes. By combining{" "}
-            <span className="text-[#6ab4ff]/80">product thinking</span>,{" "}
-            <span className="text-[#6ab4ff]/80">UX strategy</span>, and strong
-            visual execution, I create solutions that scale with both user needs
-            and business goals.
+            I design scalable product systems that transform fragmented workflows into structured, reusable knowledge. My work focuses on reducing operational friction, improving decision-making, and helping complex organizations move faster with confidence.
           </p>
         </div>
         {projects.map((p, i) => (

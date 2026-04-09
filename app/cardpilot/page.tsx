@@ -370,7 +370,7 @@ export default function CardPilot() {
                     loop
                     muted
                     playsInline
-                    className="w-[75%] object-cover rounded-[20px]"
+                    className="w-[49%] object-cover rounded-[20px]"
                   />
                 </div>
               }
@@ -420,7 +420,7 @@ export default function CardPilot() {
                     <img
                       src="/images/Cardpilot/checkout/payment 1.png"
                       alt="Gas station checkout"
-                      className="w-[75%] object-contain rounded-[16px]"
+                      className="w-[52.5%] object-contain rounded-[16px]"
                       onError={(e) => { (e.target as HTMLImageElement).style.opacity = "0"; }}
                     />
                   </div>
@@ -486,7 +486,7 @@ export default function CardPilot() {
               </div>
               <div className="hidden md:block" />
               <div className="flex justify-center">
-                <div className="w-[75%] md:w-[75%] rounded-[20px] overflow-hidden mx-auto">
+                <div className="w-[42%] md:w-[42%] rounded-[20px] overflow-hidden mx-auto">
                   <video
                     src="/images/Cardpilot/design-decision/payment-flow.mp4"
                     autoPlay
@@ -513,7 +513,7 @@ export default function CardPilot() {
               </div>
               <div className="hidden md:block" />
               <div className="flex justify-center">
-                <div className="w-[75%] md:w-[75%] rounded-[20px] overflow-hidden mx-auto">
+                <div className="w-[42%] md:w-[42%] rounded-[20px] overflow-hidden mx-auto">
                   <video
                     src="/images/Cardpilot/design-decision/card-detail.mp4"
                     autoPlay
@@ -557,7 +557,7 @@ export default function CardPilot() {
                     <img
                       src="/images/Cardpilot/integrity/offer.png"
                       alt="Offer screen"
-                      className="w-[75%] object-contain rounded-[16px]"
+                      className="w-[52.5%] object-contain rounded-[16px]"
                       onError={(e) => { (e.target as HTMLImageElement).style.opacity = "0"; }}
                     />
                   </div>

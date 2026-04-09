@@ -8,11 +8,11 @@ const navSections = [
   { id: "roles", label: "Roles" },
   { id: "problem", label: "Problem" },
   { id: "insight", label: "Key Insight" },
-  { id: "decision", label: "Design Decisions" },
-  { id: "flow", label: "The Flow" },
-  { id: "centerpiece", label: "Centerpiece" },
+  { id: "decision", label: "Design Decision" },
+  { id: "flow", label: "Lifecycle" },
+  { id: "centerpiece", label: "Tagging" },
   { id: "tradeoffs", label: "Tradeoffs" },
-  { id: "next", label: "What's Next" },
+  { id: "next", label: "Full Lifecycle" },
   { id: "reflection", label: "Reflection" },
 ];
 
@@ -155,18 +155,17 @@ export default function Quality() {
               }
               right={
                 <div className="space-y-4 text-[16px] text-white/70 leading-relaxed">
-                  <p>Veeva Vault QMS is the quality management backbone for over 175 pharmaceutical and biotech companies — including 6 of the top 20 global pharma manufacturers. It manages deviations, CAPA records, audits, and change control for manufacturing processes that produce life-saving drugs.</p>
-                  <p>A CAPA — Corrective and Preventive Action — is the formal process a pharma company runs when something goes wrong in manufacturing. Find the root cause. Fix it. Prevent recurrence. Document everything for the FDA.</p>
-                  <p>This is a concept design. I had no prior pharma experience — I researched the domain from scratch, studied the existing Vault QMS interface, and mapped the roles of everyone who touches a CAPA. Then I identified a structural problem that no current QMS solves well.</p>
+                  <p>Veeva Vault QMS supports the workflows that ensure manufacturing quality, traceability, and regulatory compliance. At the center of this system is CAPA — the structured process used to investigate failures, confirm root causes, and prevent recurrence.</p>
+                  <p>Since I had no prior experience in pharma, I started by studying how investigations actually move through the system — from the operator reporting an issue to the engineers and managers responsible for resolving it. Mapping this lifecycle revealed how many roles contribute to a single CAPA, and how knowledge moves — or fails to move — across them.</p>
+                  <p>That process mapping led me to a structural question: if every investigation produces valuable knowledge, why does each new investigation still start from zero?</p>
                 </div>
               }
             />
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-9">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-9">
               {[
                 { stat: "175+", label: "pharma companies running CAPA in Vault QMS today" },
                 { stat: "6", label: "of the top 20 global pharma companies on Vault QMS" },
                 { stat: "7", label: "distinct roles that touch a single CAPA investigation" },
-                { stat: "Faster", label: "Potential to reduce investigation time by surfacing verified precedents earlier." },
               ].map((item) => (
                 <div key={item.stat} className="rounded-[16px] p-6" style={{ background: "#181818" }}>
                   <p className="text-[clamp(24px,2.5vw,36px)] font-bold text-white tracking-tight leading-none mb-2">{item.stat}</p>
@@ -188,7 +187,8 @@ export default function Quality() {
               }
               right={
                 <div className="space-y-4 text-[16px] text-white/70 leading-relaxed">
-                  <p>A single CAPA touches seven distinct roles — each with different goals, different information needs, and different tolerances for system friction. The current QMS treats them as sequential steps in a workflow. The redesign treats them as a network that needs to share context.</p>
+                  <p>A single CAPA investigation involves seven roles, each responsible for a different part of the process. Work moves from one role to another — across shifts, departments, and sometimes locations.</p>
+                  <p>To understand how investigations actually unfold, I mapped what each role does today, focusing on how work moves in practice rather than how the workflow is documented.</p>
                 </div>
               }
             />
@@ -199,49 +199,49 @@ export default function Quality() {
                   role: "Production Operator",
                   context: "Manufacturing · Mobile, on the floor",
                   accentColor: "#D97706",
-                  desc: "First to detect the problem. Reports the deviation on mobile, gloves on, without leaving the line. Files the report and hears nothing back — ever. The feedback loop never closes. This is the most underserved role in the current system.",
+                  desc: "First to detect the problem on the manufacturing line. Reports the deviation, often using a mobile device while continuing production work. Once the report is filed, their involvement usually ends.",
                 },
                 {
                   initials: "PM",
                   role: "Production Manager",
                   context: "Manufacturing · Desktop or phone",
                   accentColor: "#92710A",
-                  desc: "Makes the hold or continue decision when a deviation is reported. Today this decision is made verbally — by phone, no audit trail, no timeline estimate. The design gives them a formal 3-option decision card with an audit stamp.",
+                  desc: "Decides whether production should continue or be paused after a deviation is reported. Communicates decisions to the team and coordinates with quality personnel.",
                 },
                 {
                   initials: "QE",
                   role: "QA Engineer",
                   context: "Quality Assurance · Desktop",
                   accentColor: "#3B6FE8",
-                  desc: "The primary investigator. Opens the CAPA, conducts the 5-Why analysis, confirms the root cause, assembles the action plan, captures the knowledge tags, and submits for approval. Spends the most time in the system — and gains the least from it today.",
+                  desc: "Leads the investigation. Reviews the deviation, performs root cause analysis, documents findings, and prepares corrective and preventive actions.",
                 },
                 {
                   initials: "QM",
                   role: "QA Manager",
                   context: "Quality Assurance · Desktop",
                   accentColor: "#7C5CBF",
-                  desc: "Triages incoming cases, assigns severity and due dates, approves completed CAPAs with e-signature, and monitors team performance across cases. Needs a risk-stratified view — not a flat list of records to read one by one.",
+                  desc: "Reviews incoming investigations, assigns priority and deadlines, approves completed CAPAs, and monitors progress across multiple cases.",
                 },
                 {
                   initials: "LA",
                   role: "Lab Analyst",
                   context: "Quality Control · LIMS + Vault",
                   accentColor: "#2D7A4F",
-                  desc: "Runs confirmatory testing when the QA Engineer's floor assessment isn't enough to confirm root cause. Today results are emailed as PDFs — manually attached to the CAPA record. Version mismatches happen. The redesign links LIMS results directly.",
+                  desc: "Performs laboratory testing to confirm suspected root causes when additional evidence is required. Test results are documented and attached to the investigation.",
                 },
                 {
                   initials: "RA",
                   role: "Regulatory Affairs",
                   context: "Regulatory · Desktop",
                   accentColor: "#C0392B",
-                  desc: "Reviews Critical CAPAs for regulatory reporting obligations — FDA Field Alert Reports, adverse event notifications. Needs to see severity classification and a clear timeline. Today they find out about cases late, often after the reporting window has partially elapsed.",
+                  desc: "Reviews high-risk CAPAs to ensure regulatory reporting requirements are met. Tracks timelines and ensures required documentation is complete.",
                 },
                 {
                   initials: "TC",
                   role: "Training Coordinator",
                   context: "Quality / HR · Desktop",
                   accentColor: "#2D7A6A",
-                  desc: "When a CAPA results in an SOP update, the Training Coordinator must identify affected staff and assign retraining. Today they find out weeks late — manually. The redesign auto-triggers training assignments when an SOP is updated from a CAPA action.",
+                  desc: "Updates training records when procedures change as a result of a CAPA. Ensures affected staff are retrained on updated processes.",
                 },
               ].map((r) => (
                 <div key={r.role} className="flex flex-col md:flex-row md:items-start gap-4 md:gap-0 py-5" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
@@ -260,23 +260,6 @@ export default function Quality() {
                 </div>
               ))}
             </div>
-
-            {/* How they connect */}
-            <div className="mt-10">
-              <p className="text-[13px] font-semibold tracking-[0.12em] uppercase text-white/30 mb-6">How they connect</p>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="rounded-[16px] p-6" style={{ background: "#181818", border: "1px solid rgba(255,255,255,0.06)" }}>
-                  <p className="text-[12px] font-semibold tracking-[0.1em] uppercase text-white/30 mb-3">Current system</p>
-                  <p className="text-[15px] font-semibold text-white mb-3">Sequential handoffs with no memory</p>
-                  <p className="text-[14px] text-white/50 leading-relaxed">Each role receives a record, completes their step, and passes it forward. No role sees the full picture. No feedback returns upstream. When the case closes, no one learns anything except the QA Manager who approved it.</p>
-                </div>
-                <div className="rounded-[16px] p-6" style={{ background: "#181818", border: "1px solid rgba(152,96,226,0.2)" }}>
-                  <p className="text-[12px] font-semibold tracking-[0.1em] uppercase mb-3" style={{ color: "rgba(152,96,226,0.7)" }}>Redesign</p>
-                  <p className="text-[15px] font-semibold text-white mb-3">A network where every closed case teaches all seven roles</p>
-                  <p className="text-[14px] text-white/50 leading-relaxed">The Operator gets a plain-language summary of what was found — and why their report mattered. The QA Engineer gets ranked precedents before they start. The Manager sees structured tags instead of free-text paragraphs. The Site Director gets trend data that actually compounds.</p>
-                </div>
-              </div>
-            </div>
           </SectionCard>
         </section>
 
@@ -291,15 +274,17 @@ export default function Quality() {
               }
               right={
                 <div className="space-y-4 text-[16px] text-white/70 leading-relaxed">
-                  <p>Current Vault QMS captures what happened. It stores records, collects signatures, and satisfies the FDA. But it was never designed to make the people using it smarter over time. Every investigation starts from zero — regardless of how many times the same problem has been solved before.</p>
+                  <p>Current QMS tools are designed to document what happened — capturing records, collecting signatures, and meeting regulatory requirements. But across investigations, knowledge remains difficult to reuse. Similar problems are often solved multiple times, even when prior cases exist.</p>
+                  <p>Repeated investigations delay production, increase downtime, and create compliance risk. When knowledge remains buried in narrative text, teams spend time rediscovering solutions instead of preventing failures.</p>
+                  <p>As a result, investigations often begin as isolated efforts — dependent on personal memory rather than shared knowledge — even in systems that store years of historical data.</p>
                 </div>
               }
             />
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-9">
               {[
-                { num: "01", title: "Knowledge buried in unstructured text", body: "Root causes and resolutions are written as free-text paragraphs. Machines cannot reason from them. Future investigators cannot benefit without manually searching through archives." },
-                { num: "02", title: "Every investigation starts from zero", body: "No mechanism exists to surface relevant past investigations before the current one begins. An engineer investigating a weight variance has no way to know the same problem was solved last year — unless they ask the right colleague." },
-                { num: "03", title: "The operator who detected it never learns", body: "The production operator who first spotted the problem files a report and hears nothing back. The feedback loop never closes. Reporting quality stays flat. Quality depends on reporting volume but gives reporters no incentive to report well." },
+                { num: "01", title: "Knowledge buried in unstructured text", body: "Root causes and resolutions are documented as long-form text fields. Similar past investigations exist, but locating them depends on manual search and personal memory rather than structured retrieval." },
+                { num: "02", title: "Every investigation starts from zero", body: "Each investigation begins as an independent case. Investigators rely on prior experience or colleague input to recognize patterns from earlier incidents, rather than seeing related cases surfaced automatically." },
+                { num: "03", title: "The operator who detected it never learns", body: "Operators who report deviations submit the initial record, but follow-up outcomes are often handled by downstream roles. Visibility into final resolution varies, leaving limited feedback to the original reporter." },
               ].map((c) => (
                 <div key={c.num} className="rounded-[16px] p-6" style={{ background: "#181818" }}>
                   <p className="text-[11px] font-semibold tracking-[0.12em] uppercase text-white/30 mb-3">{c.num}</p>
@@ -308,6 +293,7 @@ export default function Quality() {
                 </div>
               ))}
             </div>
+            <img src="/images/veeva system/problem/veeva QMS.png" alt="Veeva QMS" className="w-full mt-8 object-contain" onError={(e) => { (e.target as HTMLImageElement).style.opacity = "0"; }} />
           </SectionCard>
         </section>
 
@@ -317,11 +303,15 @@ export default function Quality() {
             <TwoCol
               left={
                 <h2 className="text-[clamp(24px,2.5vw,36px)] font-bold leading-snug tracking-tight">
-                  The records are all there. The problem is they can't talk to each other — or to the next investigation.
+                  The records exist. The learning does not.
                 </h2>
               }
               right={
-                <p className="text-[16px] text-white/70 leading-relaxed">If every closed CAPA captured five structured pieces of knowledge — failure mode, confirmation method, resolution, leading indicator, and an operator-facing summary — the system would get smarter with every investigation. After 50 cases, the AI surfaces reliable patterns. After 200, it predicts conditions before they become deviations. Each investigation makes the next one faster. The knowledge flywheel turns.</p>
+                <div className="space-y-4 text-[16px] text-white/70 leading-relaxed">
+                  <p>Across investigations, the same types of failures recur — but the way they are documented makes them difficult to compare.</p>
+                  <p>Most CAPA records store conclusions as narrative text, which captures compliance but limits reuse. Without consistent structure, patterns remain hidden across cases, even when similar problems have already been solved.</p>
+                  <p>Operators are not expected to understand the full investigation. Instead, they receive short, plain-language summaries that explain what changed and how it affects their daily work.</p>
+                </div>
               }
             />
             <div className="mt-9 rounded-[20px] p-6 md:p-10 relative overflow-hidden" style={{ background: "linear-gradient(135deg, #0f0f0f 0%, #141414 100%)", border: "1px solid rgba(152,96,226,0.3)" }}>
@@ -329,16 +319,20 @@ export default function Quality() {
               <div className="relative text-center">
                 <p className="text-[11px] font-semibold tracking-[0.16em] uppercase mb-5" style={{ color: "#9860E2" }}>Key Insight</p>
                 <p className="text-[20px] lg:text-[24px] font-semibold text-white leading-snug tracking-tight max-w-[640px] mx-auto">
-                  If every closed CAPA captured five structured pieces of knowledge, the system could surface patterns, suggest confirmation paths, and accelerate future investigations.
+                  If every closed CAPA captured the same core elements, investigations could be compared — not just recorded. Patterns would become visible across cases, instead of remaining buried inside individual reports.
                 </p>
               </div>
+            </div>
+            <div className="flex flex-col md:flex-row items-center justify-center gap-8 mt-8">
+              <img src="/images/veeva system/key insight/workflow.png" alt="Workflow" className="w-full md:w-[40%] flex-shrink-0 object-contain" onError={(e) => { (e.target as HTMLImageElement).style.opacity = "0"; }} />
+              <p className="text-[16px] text-white/60 leading-relaxed md:w-[40%] md:text-left">This model does not expand operator responsibilities — it improves clarity. Operators are not involved in root cause analysis, but they do benefit from understanding what changed after a case closes. Instead of generic retraining, they receive short summaries that connect real incidents to updated procedures, reinforcing correct behavior without adding cognitive burden.</p>
             </div>
           </SectionCard>
         </section>
 
         {/* Design Decisions */}
         <section id="decision" className="py-10 md:py-20 scroll-mt-20">
-          <SectionCard label="Design Decisions">
+          <SectionCard label="Design Decision">
             <TwoCol
               left={
                 <h2 className="text-[clamp(24px,2.5vw,36px)] font-bold leading-snug tracking-tight">
@@ -346,7 +340,7 @@ export default function Quality() {
                 </h2>
               }
               right={
-                <p className="text-[16px] text-white/70 leading-relaxed">Five decisions that each address a specific failure of the current system — not just a visual preference.</p>
+                <p className="text-[16px] text-white/70 leading-relaxed">Five decisions shaped by how investigations actually unfold — not by visual preference alone. Each reflects a constraint observed in real CAPA workflows.</p>
               }
             />
             <div className="mt-9 space-y-6">
@@ -354,31 +348,32 @@ export default function Quality() {
                 {
                   num: "01",
                   title: "Organise by quality event, not by object type",
-                  body: ["Current Vault QMS groups records by type — CAPAs, Deviations, and Lab Investigations live separately. But engineers think in events: \"What happened to batch B-2024-0921?\"", "The redesign organises by batch. Each case unifies deviation, assessment, lab, CAPA, and change control into a single timeline — showing the full journey in one place."],
+                  body: ["Current QMS records are organised by document type — CAPA, Deviation, Lab — each living in separate spaces. But investigations unfold as a sequence of events.", "Cases are organised around a single quality event. Deviation, assessment, lab testing, CAPA actions, change control, and training appear in one shared timeline — showing the full journey in context."],
                   image: "/images/veeva system/design decision/process timeline.png",
+                  imageWidth: "56%",
                 },
                 {
                   num: "02",
                   title: "AI surfaces context before investigation starts — not during",
-                  body: ["When a deviation is filed, the system queries the knowledge base using product, line, equipment, and issue tags. Before the QA Engineer opens the CAPA, three ranked historical cases are already available — showing confirmed causes, verification paths, and expected confirmation time.", "Suggestions remain clearly labelled as AI-generated and require human confirmation before entering the audit record."],
+                  body: ["When a deviation is reported, the system searches historical cases using product, line, equipment, and symptom tags. Before the QA Engineer opens the CAPA, relevant past investigations are already visible.", "Each suggestion includes confirmed causes, verification methods, and expected investigation paths. Suggestions remain clearly labelled as AI-generated and require human confirmation before entering the audit record."],
                   image: "/images/veeva system/design decision/historical cases.png",
                 },
                 {
                   num: "03",
                   title: "5-Why questions are dynamic, not pre-written",
-                  body: ["Each 5-Why question builds from the previous answer, adapting to the investigation path. Questions remain editable, allowing engineers to refine wording when needed.", "The fifth Why stays empty with guiding prompts — organisational root causes are context-specific and cannot be pre-filled. The audit trail records whether each question was AI-generated or manually edited."],
+                  body: ["Each Why builds from the previous answer, adapting to the investigation path rather than following a fixed template. Engineers can edit wording at any step.", "The fifth Why remains open-ended — organisational causes depend on local process decisions. The system records whether each entry was suggested or manually written, preserving traceability."],
                   image: "/images/veeva system/design decision/5-why.png",
                 },
                 {
                   num: "04",
                   title: "Root cause is a directly editable textarea — one confirm button",
-                  body: ["An earlier design required multiple actions — Accept, Edit, or Dismiss — adding cognitive load before reading the result.", "The redesign uses a directly editable textarea. Engineers read, edit if needed, and confirm once. Any edits are recorded automatically, satisfying audit requirements without adding extra steps."],
+                  body: ["Root cause suggestions appear directly inside an editable field. Engineers review the suggestion, adjust wording if needed, and confirm once.", "All edits are automatically recorded in the audit trail, preserving traceability without introducing extra steps."],
                   image: "/images/veeva system/design decision/AI pre-filled.png",
                 },
                 {
                   num: "05",
                   title: "Five structured tags are the gate to closure",
-                  body: ["Before submission, five structured tags must be confirmed: Failure Mode, Confirmation Method, Resolution, Leading Indicator, and Operator Summary.", "AI pre-fills the first four from investigation data. The operator summary must be written by the engineer and addressed to the original reporter.", "The case cannot close until all five are complete — turning compliance records into reusable knowledge."],
+                  body: ["Before closure, five structured knowledge fields must be confirmed: Failure Mode, Confirmation Method, Resolution, Leading Indicator, and Operator Summary.", "The first four are suggested from investigation data. The final summary is written in plain language for the original reporter. A case cannot close until all five are complete — turning each investigation into reusable knowledge."],
                   image: "/images/veeva system/design decision/5 tags.png",
                 },
               ].map((c) => (
@@ -394,70 +389,61 @@ export default function Quality() {
                     <img
                       src={c.image}
                       alt={c.title}
-                      className="w-[70%] mt-6 object-contain mx-auto block"
-                      style={{ borderRadius: 0 }}
+                      className="mt-8 object-contain mx-auto block"
+                      style={{ width: "imageWidth" in c && c.imageWidth ? c.imageWidth : "84%" }}
                       onError={(e) => { (e.target as HTMLImageElement).style.opacity = "0"; }}
                     />
                   )}
                 </div>
               ))}
               {/* Video at the end */}
-              <div className="rounded-[16px] overflow-hidden" style={{ background: "#181818" }}>
-                <video
-                  src="/images/veeva system/design decision/veeva.mp4"
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className="w-full"
-                />
-              </div>
+              <video src="/images/veeva system/design decision/veeva system 2.mp4" autoPlay loop muted playsInline className="w-full rounded-[16px]" />
             </div>
           </SectionCard>
         </section>
 
-        {/* The Flow */}
+        {/* Lifecycle */}
         <section id="flow" className="py-10 md:py-20 scroll-mt-20">
-          <SectionCard label="The Flow">
+          <SectionCard label="Lifecycle">
             <TwoCol
               left={
                 <h2 className="text-[clamp(24px,2.5vw,36px)] font-bold leading-snug tracking-tight">
-                  Four chapters. One connected story.
+                  Four stages. One connected story.
                 </h2>
               }
               right={
-                <p className="text-[16px] text-white/70 leading-relaxed">To test the design, I followed a single quality event from detection to learning — showing how each role contributes at the moment they naturally interact with the system.</p>
+                <p className="text-[16px] text-white/70 leading-relaxed">To test the design, I followed a single quality event from detection to learning — showing how each role contributes at the moment they naturally interact with the case.</p>
               }
             />
             <div className="mt-9 flex flex-col gap-4">
               {[
                 {
-                  chapter: "Chapter 01",
+                  stage: "Stage 01",
                   title: "Detection",
                   hook: "The operator sees something wrong.",
-                  body: "A production operator files a deviation report directly from the floor. The form captures structured inputs — product, batch, line, and observation — with no free-text narrative. The event is instantly tagged and routed to the right QA Engineer.",
+                  body: "A production operator notices an issue on the line and files a deviation directly from the floor. The form captures structured details — product, batch, line, and observation — so the event can be routed immediately to the right investigator.",
                 },
                 {
-                  chapter: "Chapter 02",
+                  stage: "Stage 02",
                   title: "Investigation",
                   hook: "The engineer doesn't start from zero.",
-                  body: "Before opening the CAPA, the system surfaces similar past cases — matched by product, line, and issue type. Each shows confirmed root causes and verification methods. The engineer reviews precedents, runs the 5-Why with AI prompts, and confirms or edits the proposed root cause.",
+                  body: "Before opening the CAPA, the system surfaces similar past cases matched by product, line, and issue type. Each shows confirmed causes and verification methods. The QA engineer reviews precedents, runs the 5-Why analysis, and confirms or refines the root cause.",
                 },
                 {
-                  chapter: "Chapter 03",
+                  stage: "Stage 03",
                   title: "Closure",
-                  hook: "Five tags. One submit button. The knowledge enters the system.",
-                  body: "Before submission, five structured tags must be confirmed: Failure Mode, Confirmation Method, Resolution, Leading Indicator, and Operator Summary. The first four are AI-suggested and engineer-verified. The case cannot close until all five are complete.",
+                  hook: "Five tags. One submission. The investigation becomes knowledge.",
+                  body: "Before closing the case, five structured fields must be confirmed: Failure Mode, Confirmation Method, Resolution, Leading Indicator, and Operator Summary. The case cannot close until all five are complete — turning the investigation into reusable knowledge.",
                 },
                 {
-                  chapter: "Chapter 04",
+                  stage: "Stage 04",
                   title: "Learning",
-                  hook: "The flywheel turns.",
-                  body: "The closed case enters the knowledge base as structured tags. Operators receive a plain-language summary explaining what was found and fixed. Dashboards update with trends, helping teams detect patterns earlier. Each resolved case makes the next investigation faster.",
+                  hook: "The next investigation starts smarter.",
+                  body: "The closed case enters the knowledge base as structured tags. Operators receive a plain-language summary explaining what was found and what changed. Dashboards update with emerging trends. Each resolved case makes the next investigation faster and more informed.",
                 },
               ].map((c) => (
-                <div key={c.chapter} className="rounded-[16px] p-6" style={{ background: "#181818" }}>
-                  <p className="text-[11px] font-semibold tracking-[0.12em] uppercase text-white/30 mb-3">{c.chapter}</p>
+                <div key={c.stage} className="rounded-[16px] p-6" style={{ background: "#181818" }}>
+                  <p className="text-[11px] font-semibold tracking-[0.12em] uppercase text-white/30 mb-3">{c.stage}</p>
                   <p className="text-[18px] font-bold text-white mb-1">{c.title}</p>
                   <p className="text-[14px] font-medium mb-3" style={{ color: "#9860E2" }}>{c.hook}</p>
                   <p className="text-[14px] text-white/50 leading-relaxed">{c.body}</p>
@@ -467,119 +453,104 @@ export default function Quality() {
           </SectionCard>
         </section>
 
-        {/* Centerpiece Feature */}
+        {/* Tagging */}
         <section id="centerpiece" className="py-10 md:py-20 scroll-mt-20">
-          <SectionCard label="Centerpiece Feature">
+          <SectionCard label="Tagging">
             <TwoCol
               left={
                 <h2 className="text-[clamp(24px,2.5vw,36px)] font-bold leading-snug tracking-tight">
-                  Knowledge tags — captured here, learned forever.
+                  Structured information — captured early, confirmed at closure.
                 </h2>
               }
               right={
-                <p className="text-[16px] text-white/70 leading-relaxed">Most CAPA systems store knowledge as free text. Valuable lessons exist, but remain buried inside individual records. The turning point in this design was recognizing that closure is the only moment when knowledge is complete — and reusable.</p>
+                <div className="space-y-3 text-[16px] text-white/70 leading-relaxed">
+                  <p>Most CAPA systems store investigations as long documents. The details are there, but they are buried inside paragraphs that are difficult to search, compare, or reuse.</p>
+                  <p>In this system, information is structured as tags from the very beginning — not just at closure.</p>
+                  <p>Some tags appear immediately when a case is created — product, batch, line, equipment, and severity. These early tags define where the issue happened.</p>
+                  <p>As the investigation progresses, additional tags are confirmed — what failed, how it was verified, and what actions were taken. These later tags define what was learned.</p>
+                  <p>Together, these tags turn individual investigations into structured data that improves future investigations.</p>
+                </div>
               }
             />
 
-            {/* Sub-section: Capture Knowledge */}
             <div className="mt-10 space-y-6">
+
+              {/* Sub-section 1: Two types of tags */}
               <div className="rounded-[16px] p-6 md:p-8" style={{ background: "#181818" }}>
-                <p className="text-[11px] font-semibold tracking-[0.12em] uppercase text-white/30 mb-4">Capture Knowledge</p>
-                <p className="text-[18px] font-bold text-white mb-3">The five tags</p>
-                <p className="text-[14px] text-white/50 leading-relaxed mb-6">Every closed investigation must confirm five structured pieces of information before the record closes. These five tags become the queryable atoms of institutional knowledge.</p>
-                <div className="grid grid-cols-1 md:grid-cols-5 gap-3">
+                <p className="text-[11px] font-semibold tracking-[0.12em] uppercase text-white/30 mb-2">Two types of tags</p>
+                <p className="text-[14px] text-white/50 leading-relaxed mb-6">Not all tags serve the same purpose. This system separates context tags from knowledge tags.</p>
+                <div className="flex flex-col gap-4">
                   {[
-                    { num: "01", tag: "Failure Mode", desc: "The specific mechanism of failure — not just the symptom." },
-                    { num: "02", tag: "Confirmation Method", desc: "How the root cause was confirmed — test type, result, time taken." },
-                    { num: "03", tag: "Resolution", desc: "What was changed to fix and prevent recurrence." },
-                    { num: "04", tag: "Leading Indicator", desc: "The early warning signal that could catch this next time." },
-                    { num: "05", tag: "Operator Summary", desc: "Plain language for the operator who first reported — by name." },
-                  ].map((t) => (
-                    <div key={t.num} className="rounded-[12px] p-4" style={{ background: "rgba(152,96,226,0.08)", border: "1px solid rgba(152,96,226,0.2)" }}>
-                      <p className="text-[10px] font-semibold tracking-[0.12em] uppercase mb-2" style={{ color: "rgba(152,96,226,0.6)" }}>{t.num}</p>
-                      <p className="text-[13px] font-semibold text-white mb-2">{t.tag}</p>
-                      <p className="text-[12px] text-white/40 leading-relaxed">{t.desc}</p>
+                    {
+                      title: "Context tags",
+                      hook: "Captured at case creation",
+                      body: "These tags describe the environment of the issue — product, batch, line, equipment, and severity. They allow the system to immediately group similar cases and surface relevant historical patterns. Without context tags, each investigation starts without direction.",
+                      image: "/images/veeva system/tagging/context tags.png",
+                    },
+                    {
+                      title: "Knowledge tags",
+                      hook: "Confirmed at closure",
+                      body: "These tags capture the results of the investigation — the confirmed failure mode, how the cause was proven, what was fixed, and what signals should be monitored next time. This is the moment when observations become reusable knowledge.",
+                    },
+                  ].map((c) => (
+                    <div key={c.title} className="rounded-[12px] p-5" style={{ background: "#202020" }}>
+                      <p className="text-[14px] font-semibold text-white mb-1">{c.title}</p>
+                      <p className="text-[12px] font-medium mb-3" style={{ color: "#9860E2" }}>{c.hook}</p>
+                      <p className="text-[13px] text-white/50 leading-relaxed">{c.body}</p>
+                      {"image" in c && c.image && (
+                        <img src={c.image} alt={c.title} className="w-[90%] mt-8 object-contain mx-auto block" onError={(e) => { (e.target as HTMLImageElement).style.opacity = "0"; }} />
+                      )}
                     </div>
                   ))}
                 </div>
               </div>
 
-              {/* Sub-section: Why This Matters */}
+              {/* Sub-section 2: The five knowledge tags */}
               <div className="rounded-[16px] p-6 md:p-8" style={{ background: "#181818" }}>
-                <p className="text-[11px] font-semibold tracking-[0.12em] uppercase text-white/30 mb-4">Why This Matters</p>
-                <div className="flex flex-col md:grid gap-6 md:gap-0" style={{ gridTemplateColumns: "45% 45%", columnGap: "10%" }}>
-                  <div>
-                    <p className="text-[18px] font-bold text-white mb-3">The difference between a record and knowledge</p>
-                    <p className="text-[14px] text-white/50 leading-relaxed">A compliance record answers: "What did we do?" A knowledge entry answers: "What should we try next time?" The five tags are the minimum viable structure to make the latter possible. Without them, the AI has no atoms to reason from. With them, every closed case becomes a query-able precedent.</p>
-                  </div>
-                  <div className="space-y-3">
-                    {[
-                      { q: "Why not free text?", a: "Language models can summarize free text — but structured tags enable exact matching, trend analysis, and reliable AI suggestion ranking. Unstructured knowledge doesn't compound." },
-                      { q: "Why five specifically?", a: "Five tags capture the minimum useful information without adding enough friction to compromise adoption. Fewer and the AI suggestions are unreliable. More and engineers skip them." },
-                      { q: "Why is Tag 5 uneditable by AI?", a: "The operator summary must be written by a human, for a specific human. It closes the feedback loop that motivates better reporting. Automation would undermine its purpose." },
-                    ].map((item) => (
-                      <div key={item.q} className="rounded-[12px] p-4" style={{ background: "#202020" }}>
-                        <p className="text-[13px] font-semibold text-white mb-1">{item.q}</p>
-                        <p className="text-[13px] text-white/40 leading-relaxed">{item.a}</p>
-                      </div>
-                    ))}
+                <p className="text-[11px] font-semibold tracking-[0.12em] uppercase text-white/30 mb-2">The five knowledge tags</p>
+                <p className="text-[14px] text-white/50 leading-relaxed mb-6">Each closed case produces five structured knowledge tags. Together, they form a reusable reference for future investigations.</p>
+                <div className="grid grid-cols-1 md:grid-cols-5 gap-3">
+                  {[
+                    { num: "01", title: "Failure Mode", body: "What actually failed — not just what was observed. This makes similar failures searchable across products and batches." },
+                    { num: "02", title: "Confirmation Method", body: "How the root cause was verified. This helps future investigators confirm the same issue with confidence." },
+                    { num: "03", title: "Resolution", body: "What was changed to fix the issue and prevent recurrence. This becomes the reference action for handling similar cases." },
+                    { num: "04", title: "Leading Indicator", body: "The early signal that appears before failure occurs. This helps teams detect the issue sooner next time." },
+                    { num: "05", title: "Operator Summary", body: "A plain-language explanation shared with the operator who reported the issue. This closes the feedback loop and reinforces better reporting." },
+                  ].map((t) => (
+                    <div key={t.num} className="rounded-[12px] p-4" style={{ background: "rgba(152,96,226,0.08)", border: "1px solid rgba(152,96,226,0.2)" }}>
+                      <p className="text-[10px] font-semibold tracking-[0.12em] uppercase mb-2" style={{ color: "rgba(152,96,226,0.6)" }}>{t.num}</p>
+                      <p className="text-[13px] font-semibold text-white mb-2">{t.title}</p>
+                      <p className="text-[12px] text-white/40 leading-relaxed">{t.body}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Sub-section 3: The system improves with every closed case */}
+              <div className="rounded-[16px] p-6 md:p-8" style={{ background: "#181818" }}>
+                <p className="text-[11px] font-semibold tracking-[0.12em] uppercase text-white/30 mb-2">The system improves with every closed case</p>
+                <div className="space-y-3 text-[14px] text-white/50 leading-relaxed">
+                  <p>A record answers: <span className="font-semibold text-white/80">What happened?</span></p>
+                  <p>Tagging answers: <span className="font-semibold text-white/80">What should we do next time?</span></p>
+                  <p>Each confirmed tag turns an investigation into structured knowledge — something future teams can search, recognize, and reuse.</p>
+                  <p>As more cases close with structured tags, the system becomes progressively more useful. Instead of starting from scratch, investigators see relevant historical precedents early, helping them resolve issues with greater speed and confidence.</p>
+                  <p>Over time, recurring patterns become easier to detect. What once depended on individual memory becomes shared knowledge across teams — and eventually across sites.</p>
+                  <p>Knowledge no longer leaves with people. It stays in the system and improves with every case.</p>
+                </div>
+              </div>
+
+              {/* Sub-section 4: Before vs. After */}
+              <div className="rounded-[16px] p-6 md:p-8" style={{ background: "#181818" }}>
+                <p className="text-[11px] font-semibold tracking-[0.12em] uppercase text-white/30 mb-6">Before vs. After</p>
+                <div className="flex flex-col md:flex-row items-center justify-center gap-8">
+                  <img src="/images/veeva system/tagging/before vs after.png" alt="Before vs After" className="w-full md:w-[60%] flex-shrink-0 object-contain mt-2" onError={(e) => { (e.target as HTMLImageElement).style.opacity = "0"; }} />
+                  <div className="space-y-4 md:w-[40%] text-[14px] text-white/50 leading-relaxed">
+                    <p>Before structured tagging, investigations closed as documents — complete, compliant, but difficult to reuse. Similar issues often required teams to start from scratch, relying on memory and manual search to locate relevant past cases.</p>
+                    <p>After structured tagging, each closed investigation produces reusable knowledge. Root causes become searchable, patterns become visible across cases, and future investigations begin with context instead of uncertainty — reducing repeated work and improving resolution speed.</p>
                   </div>
                 </div>
               </div>
 
-              {/* Sub-section: Knowledge Flywheel */}
-              <div className="rounded-[16px] p-6 md:p-8" style={{ background: "#181818" }}>
-                <p className="text-[11px] font-semibold tracking-[0.12em] uppercase text-white/30 mb-4">Knowledge Flywheel</p>
-                <p className="text-[18px] font-bold text-white mb-3">The system gets smarter with every closed case</p>
-                <p className="text-[14px] text-white/50 leading-relaxed">As more investigations close with structured tags, the system becomes progressively more useful. Early on, it begins surfacing relevant historical cases, reducing the need to start from scratch. Over time, patterns emerge that help teams recognize early warning signals and prevent recurring failures. When scaled across multiple sites, knowledge no longer stays local — it compounds into shared institutional intelligence.</p>
-              </div>
-
-              {/* Sub-section: Before vs. After */}
-              <div className="rounded-[16px] p-6 md:p-8" style={{ background: "#181818" }}>
-                <p className="text-[11px] font-semibold tracking-[0.12em] uppercase text-white/30 mb-4">Before vs. After</p>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="rounded-[12px] p-5" style={{ background: "#202020" }}>
-                    <p className="text-[12px] font-semibold tracking-[0.1em] uppercase text-white/30 mb-4">Current Vault QMS</p>
-                    <div className="space-y-3">
-                      {[
-                        "Investigation closes as a free-text PDF attachment",
-                        "No structured root cause — just narrative paragraphs",
-                        "AI has no atoms to reason from — can't surface precedents",
-                        "Operator who reported gets no feedback",
-                        "Same investigation runs again 8 months later",
-                        "Knowledge exists only in people — and leaves when they do",
-                      ].map((item) => (
-                        <div key={item} className="flex items-start gap-3">
-                          <div className="w-4 h-4 rounded-full flex-shrink-0 mt-0.5 flex items-center justify-center" style={{ background: "rgba(255,255,255,0.06)" }}>
-                            <div className="w-1.5 h-1.5 rounded-full bg-white/20" />
-                          </div>
-                          <p className="text-[13px] text-white/40 leading-relaxed">{item}</p>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                  <div className="rounded-[12px] p-5" style={{ background: "#202020", border: "1px solid rgba(152,96,226,0.15)" }}>
-                    <p className="text-[12px] font-semibold tracking-[0.1em] uppercase mb-4" style={{ color: "rgba(152,96,226,0.7)" }}>Redesigned system</p>
-                    <div className="space-y-3">
-                      {[
-                        "Investigation closes as five confirmed structured tags",
-                        "Root cause stored as a machine-queryable failure mode",
-                        "AI surfaces 3 ranked precedents before the next investigation starts",
-                        "Operator receives plain-language summary with their name",
-                        "Next similar deviation resolved 50–70% faster",
-                        "Knowledge lives in the system — not in people's heads",
-                      ].map((item) => (
-                        <div key={item} className="flex items-start gap-3">
-                          <div className="w-4 h-4 rounded-full flex-shrink-0 mt-0.5 flex items-center justify-center" style={{ background: "rgba(152,96,226,0.15)" }}>
-                            <div className="w-1.5 h-1.5 rounded-full" style={{ background: "#9860E2" }} />
-                          </div>
-                          <p className="text-[13px] text-white/60 leading-relaxed">{item}</p>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
           </SectionCard>
         </section>
@@ -590,11 +561,14 @@ export default function Quality() {
             <TwoCol
               left={
                 <h2 className="text-[clamp(24px,2.5vw,36px)] font-bold leading-snug tracking-tight">
-                  Every constraint forced a real choice.
+                  Every constraint required a decision.
                 </h2>
               }
               right={
-                <p className="text-[16px] text-white/70 leading-relaxed">Designing for a regulated industry means compliance and usability pull in opposite directions. These are the three I made explicitly.</p>
+                <div className="space-y-3 text-[16px] text-white/70 leading-relaxed">
+                  <p>Designing for a regulated environment means compliance and usability often pull in opposite directions. These are the three tradeoffs I made deliberately.</p>
+                  <p>Each tradeoff favors long-term reliability over short-term convenience.</p>
+                </div>
               }
             />
             <div className="mt-9 grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -602,17 +576,17 @@ export default function Quality() {
                 {
                   num: "01",
                   title: "Mandatory tags vs. engineer autonomy",
-                  body: "Five tags are required before the case can close — no workaround. This creates friction for engineers who just want to submit. But the knowledge flywheel only works if every closure is structured. One untagged investigation creates a gap. Optionality would compromise the system gradually, then suddenly.",
+                  body: "Five tags are required before a case can close — no workaround. This introduces friction for engineers who want to submit quickly. But structured closure only works when every case contributes usable knowledge. One untagged investigation creates a gap. Making tags optional would gradually weaken the system — until it stops being reliable.",
                 },
                 {
                   num: "02",
                   title: "AI suggests vs. AI decides",
-                  body: "The AI could pre-fill the root cause and auto-confirm tags — saving time. But in a regulated environment every documented conclusion requires a named human to own it. AI suggestions are visually distinct, require explicit confirmation, and record who confirmed them. Speed was traded for auditability.",
+                  body: "The AI could automatically confirm root causes and pre-fill tags — saving time. But in a regulated environment, every documented conclusion must be owned by a named person. AI suggestions remain visually distinct, require explicit confirmation, and record who approved them. Speed was intentionally traded for traceability.",
                 },
                 {
                   num: "03",
                   title: "Event-based navigation vs. familiar object-type navigation",
-                  body: "Organising by batch case is more intuitive for investigators — but QA Engineers trained on current Vault QMS know where to find \"all CAPAs\" in a flat list. Changing that mental model is a real adoption cost. The new model has to be obviously better within the first session, or it won't stick.",
+                  body: "Organizing cases by investigation flow is more intuitive for new users. But QA engineers trained on existing systems expect to find cases in flat lists. Changing that mental model introduces adoption risk. The new structure must feel immediately clearer during the first session — or users will revert to old habits.",
                 },
               ].map((t) => (
                 <div key={t.num} className="rounded-[16px] p-6" style={{ background: "#181818" }}>
@@ -625,39 +599,39 @@ export default function Quality() {
           </SectionCard>
         </section>
 
-        {/* What's Next */}
+        {/* Full Lifecycle */}
         <section id="next" className="py-10 md:py-20 scroll-mt-20">
-          <SectionCard label="What's Next">
+          <SectionCard label="Full Lifecycle">
             <TwoCol
               left={
                 <h2 className="text-[clamp(24px,2.5vw,36px)] font-bold leading-snug tracking-tight">
-                  Three screens still to design.
+                  Three stages that complete the lifecycle.
                 </h2>
               }
               right={
-                <p className="text-[16px] text-white/70 leading-relaxed">This case study covers Chapter 2 in depth. These are the screens that complete the story.</p>
+                <p className="text-[16px] text-white/70 leading-relaxed">This case study focused on the investigation stage in depth. These remaining stages complete the lifecycle — from initial report to final feedback. And each stage plays a role in turning a single report into reusable knowledge.</p>
               }
             />
             <div className="mt-9 grid grid-cols-1 md:grid-cols-3 gap-4">
               {[
                 {
-                  chapter: "Chapter 1",
+                  stage: "Stage 1",
                   title: "Mobile floor report",
-                  body: "The operator's mobile experience — scan batch barcode, photograph the defect, tap issue type, submit in 60 seconds without leaving the line. This is where the first structured tags enter the system.",
+                  body: "The lifecycle begins on the production floor. Operators scan a batch barcode, photograph the defect, and select the issue type — submitting a report in under 60 seconds without leaving the line. This is where the first structured tags enter the system.",
                 },
                 {
-                  chapter: "Chapter 3",
+                  stage: "Stage 3",
                   title: "QA Manager approval view",
-                  body: "Risk-stratified queue showing cases by severity and SLA status. AI-generated root cause quality score. Three-click approval for strong investigations. Inline send-back for weak ones.",
+                  body: "Before closure, QA Managers review each investigation in a risk-stratified queue. AI highlights confidence levels and supporting evidence, enabling fast approval of strong cases and targeted feedback on weak ones. This is where accountability is formally recorded.",
                 },
                 {
-                  chapter: "Chapter 4",
+                  stage: "Stage 4",
                   title: "Operator feedback card",
-                  body: "The plain-language notification sent to J. Rodriguez when the case closes. What you reported → what caused it → what was fixed → what to tell QA next time. Thirty seconds to read. The loop closes.",
+                  body: "When the case closes, the operator receives a plain-language summary of what happened — what caused the issue, what was fixed, and what to report next time. This closes the loop between reporting and learning.",
                 },
               ].map((c) => (
-                <div key={c.chapter} className="rounded-[16px] p-6" style={{ background: "#181818" }}>
-                  <p className="text-[11px] font-semibold tracking-[0.12em] uppercase mb-3" style={{ color: "#9860E2" }}>{c.chapter}</p>
+                <div key={c.stage} className="rounded-[16px] p-6" style={{ background: "#181818" }}>
+                  <p className="text-[11px] font-semibold tracking-[0.12em] uppercase mb-3" style={{ color: "#9860E2" }}>{c.stage}</p>
                   <p className="text-[15px] font-semibold text-white mb-3">{c.title}</p>
                   <p className="text-[14px] text-white/50 leading-relaxed">{c.body}</p>
                 </div>
@@ -672,11 +646,11 @@ export default function Quality() {
             <TwoCol
               left={
                 <h2 className="text-[clamp(24px,2.5vw,36px)] font-bold leading-snug tracking-tight">
-                  What this project taught me.
+                  What changed how I think.
                 </h2>
               }
               right={
-                <p className="text-[16px] text-white/70 leading-relaxed">Naming the gaps isn't weakness — it's how senior designers think about unfinished work.</p>
+                <p className="text-[16px] text-white/70 leading-relaxed">This project revealed gaps that shaped how I now approach enterprise design.</p>
               }
             />
             <div className="mt-9 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -684,17 +658,20 @@ export default function Quality() {
                 {
                   num: "01",
                   title: "Five is a hypothesis, not a conclusion",
-                  body: "Five tags is the minimum I believe would make the AI useful without adding enough friction to compromise adoption. Fewer and the pattern matching is unreliable. More and engineers skip the step. The right number should be validated with real engineers — it may be four, it may be six.",
+                  hook: null,
+                  body: "Five tags felt like the minimum that would make pattern matching useful without slowing engineers down. Fewer created unreliable signals. More added friction. But the right number shouldn't be assumed — it should be tested with real engineers. The final answer may be four, or it may be six.",
                 },
                 {
                   num: "02",
-                  title: "Enterprise design is systems design",
-                  body: "Early on I focused on the QA Engineer's screen. Mapping all seven roles showed that the real problem was how work moves across people — not how any single screen works. The investigation screen only matters because the operator, the lab, the manager, and the training coordinator are all connected to it.",
+                  title: "The real problem wasn't UI — it was workflow.",
+                  hook: null,
+                  body: "Early on, I focused on improving the investigation screen. Mapping all seven roles showed that the real problem wasn't a single interface — it was how work moved across people. The investigation screen only works because operators, labs, managers, and trainers are connected to it. Designing the system mattered more than refining individual screens.",
                 },
               ].map((r) => (
                 <div key={r.num} className="rounded-[16px] p-6" style={{ background: "#181818" }}>
                   <p className="text-[11px] font-semibold tracking-[0.12em] uppercase text-white/30 mb-3">{r.num}</p>
-                  <p className="text-[15px] font-semibold text-white mb-3">{r.title}</p>
+                  <p className="text-[15px] font-semibold text-white mb-2">{r.title}</p>
+                  {r.hook && <p className="text-[14px] font-medium mb-3" style={{ color: "#9860E2" }}>{r.hook}</p>}
                   <p className="text-[14px] text-white/50 leading-relaxed">{r.body}</p>
                 </div>
               ))}
