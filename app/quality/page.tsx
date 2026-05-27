@@ -121,10 +121,8 @@ export default function Quality() {
 
               <div className="space-y-5">
                 {[
-                  { label: "Type", value: "Concept Project" },
                   { label: "Platform", value: "Enterprise SaaS" },
                   { label: "Role", value: "Product Designer" },
-                  { label: "Duration", value: "2 Weeks" },
                 ].map((item) => (
                   <div key={item.label}>
                     <p className="text-[11px] font-semibold tracking-[0.12em] uppercase text-white/30 mb-1">{item.label}</p>
@@ -137,8 +135,8 @@ export default function Quality() {
             {/* Right: overview summary */}
             <div className="flex flex-col justify-end">
               <div className="space-y-4 text-[16px] text-white/60 leading-relaxed">
-                <p>Most Quality Management Systems are built for compliance. They record what happened, satisfy regulators, and close cases — but rarely help investigators learn from past failures.</p>
-                <p>This project explores how structured knowledge, captured at closure, could transform every investigation into a reusable asset. Not just documentation, but infrastructure for learning — where each resolved case strengthens the next, and the system grows smarter over time.</p>
+                <p>Most Quality Management Systems are built for compliance. They record what happened, satisfy regulators, and close cases — but they don&apos;t help organizations learn from past failures.</p>
+                <p>The central argument of this work: structured knowledge, captured at closure, can transform every investigation into institutional memory. Not just documentation — infrastructure for learning, where each resolved case strengthens the next.</p>
               </div>
             </div>
           </div>
@@ -150,14 +148,14 @@ export default function Quality() {
             <TwoCol
               left={
                 <h2 className="text-[clamp(24px,2.5vw,36px)] font-bold leading-snug tracking-tight">
-                  I had zero pharma experience. I gave myself one week to understand the domain well enough to design for it.
+                  Pharmaceutical QMS is one of the most regulated, role-dense workflows in enterprise software. I built domain fluency before touching a single frame.
                 </h2>
               }
               right={
                 <div className="space-y-4 text-[16px] text-white/70 leading-relaxed">
                   <p>Veeva Vault QMS supports the workflows that ensure manufacturing quality, traceability, and regulatory compliance. At the center of this system is CAPA — the structured process used to investigate failures, confirm root causes, and prevent recurrence.</p>
-                  <p>Since I had no prior experience in pharma, I started by studying how investigations actually move through the system — from the operator reporting an issue to the engineers and managers responsible for resolving it. Mapping this lifecycle revealed how many roles contribute to a single CAPA, and how knowledge moves — or fails to move — across them.</p>
-                  <p>That process mapping led me to a structural question: if every investigation produces valuable knowledge, why does each new investigation still start from zero?</p>
+                  <p>I started by mapping how investigations actually move through the system — not how they&apos;re documented to move. That meant understanding the full role topology: who touches a CAPA, at what stage, with what context, and what they hand off when they&apos;re done.</p>
+                  <p>The process map surfaced a structural contradiction that shaped everything that followed: every investigation produces valuable knowledge, but each new investigation still starts from zero.</p>
                 </div>
               }
             />
@@ -189,6 +187,7 @@ export default function Quality() {
                 <div className="space-y-4 text-[16px] text-white/70 leading-relaxed">
                   <p>A single CAPA investigation involves seven roles, each responsible for a different part of the process. Work moves from one role to another — across shifts, departments, and sometimes locations.</p>
                   <p>To understand how investigations actually unfold, I mapped what each role does today, focusing on how work moves in practice rather than how the workflow is documented.</p>
+                  <p>To pressure-test these role definitions, I ran structured walkthroughs with participants taking on each role — validating where handoffs broke down and where knowledge was lost in transit.</p>
                 </div>
               }
             />
@@ -275,7 +274,7 @@ export default function Quality() {
               right={
                 <div className="space-y-4 text-[16px] text-white/70 leading-relaxed">
                   <p>Current QMS tools are designed to document what happened — capturing records, collecting signatures, and meeting regulatory requirements. But across investigations, knowledge remains difficult to reuse. Similar problems are often solved multiple times, even when prior cases exist.</p>
-                  <p>Repeated investigations delay production, increase downtime, and create compliance risk. When knowledge remains buried in narrative text, teams spend time rediscovering solutions instead of preventing failures.</p>
+                  <p>Each repeated investigation delays production, increases downtime, and creates compliance risk — costs that compound invisibly because no one is tracking what the system failed to retain.</p>
                   <p>As a result, investigations often begin as isolated efforts — dependent on personal memory rather than shared knowledge — even in systems that store years of historical data.</p>
                 </div>
               }
